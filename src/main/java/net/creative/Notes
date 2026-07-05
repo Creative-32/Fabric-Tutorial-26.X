@@ -1,0 +1,10 @@
+Items:
+1. ModItems
+    * Copy Line 16 (CRTL + D) - creates a new item
+    * Copy line 30 - adds it to the creative mode tab
+2. ModModelProveider
+    * Copy line 22 - generates model
+3. lang, en_us.json
+    * copy Line 2 - renames the item
+4. DataGen
+    * always rerun if anything in datagen is changed
