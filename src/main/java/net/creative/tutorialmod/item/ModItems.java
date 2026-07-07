@@ -13,7 +13,6 @@ import net.minecraft.world.item.Item;
 import java.util.function.Function;
 
 public class ModItems {
-
     // 2
     public static final Item FLUORITE = registerItem("fluorite", Item::new);
     public static final Item RAW_FLUORITE = registerItem("raw_fluorite", Item::new);
@@ -27,13 +26,10 @@ public class ModItems {
 
     public static void registerModItems() {
         TutorialMod.LOGGER.info("Registering Mod Items for " + TutorialMod.MOD_ID);
-
+        // 2
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.INGREDIENTS).register(output -> {
-
-            // 2
             output.accept(FLUORITE);
             output.accept(RAW_FLUORITE);
-
 
         });
     }
