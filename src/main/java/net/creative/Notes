@@ -1,14 +1,25 @@
 
+Creative Tabs
+1. ModCreativeModeTabs
+    * New Tab - Copy and Paste Line 16-27
+        * Rename Tab for Corresponding Lines 16 and 17(name?)
+        * Change Tab Icon by editing line 18
+        * Change Line 19 to change Tab name
+            * "Create Translation" aka Add name to en_us.json
+        * Add/Remove Items from Tab by Editing Line 21-24
+
+
 Items:
 1. ModModelProvider
-    * Copy line 22 - generates model
+    * Copy line 22 - Generates Model
 2. ModItems
-    * Copy Line 16 - Creates a new item
-    * Copy line 30 - Adds it to the creative mode tab
+    * Line 18 - Creates a New Item
+    * Line 32 - Selects Creative Mode Tab
+        *  Line 35 - Adds item to Selected Creative Mode Tab
 3. lang, en_us.json
-    * copy Line 2 - Renames the item in game
+    * Line 2 - Renames Item in game
 4. DataGen
-    * Run to generate everything into Build folder
+    * Run to Generate Everything into Build Folder
 
 
 
