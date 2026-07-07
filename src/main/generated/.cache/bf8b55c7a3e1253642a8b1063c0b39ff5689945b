@@ -1,0 +1,5 @@
+// 26.1.2	-999999999-01-01T00:00:00	Tutorial Mod/Model Definitions
+0be1ad5ae2627b4ea20c36c422e6001a29ecc7fe assets/tutorialmod/items/fluorite.json
+c9f5aefcd09ada451a50297fe87f61e6d9266e2d assets/tutorialmod/items/raw_fluorite.json
+274bc448a39a256231897fcbf4596ac4db786fa2 assets/tutorialmod/models/item/fluorite.json
+86543c2d342d40575f7a48ebccdf047d274127b8 assets/tutorialmod/models/item/raw_fluorite.json
