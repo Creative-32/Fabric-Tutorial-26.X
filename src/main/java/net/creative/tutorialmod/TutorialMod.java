@@ -1,5 +1,6 @@
 package net.creative.tutorialmod;
 
+import net.creative.tutorialmod.creativemodetabs.ModCreativeModeTabs;
 import net.fabricmc.api.ModInitializer;
 
 import net.creative.tutorialmod.item.ModItems;
@@ -13,6 +14,10 @@ public class TutorialMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		ModCreativeModeTabs.registerModCreativeModeTabs();
+
 		ModItems.registerModItems();
 	}
 }
+
+// onInitialize - tabs, items, blocks, ect

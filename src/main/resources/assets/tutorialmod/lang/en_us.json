@@ -1,4 +1,14 @@
 {
+
+
+
+  "creativemodetab.tutorialmod.fluorite_items": "Fluorite Tutorial Items",
+  "creativemodetab.tutorialmod.fluorite_blocks": "Fluorite Tutorial Blocks",
+
+
   "item.tutorialmod.fluorite": "Fluorite",
   "item.tutorialmod.raw_fluorite": "Raw Fluorite"
+
+
+
 }
