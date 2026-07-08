@@ -41,3 +41,14 @@ Notes
 * CRTL + D: short cut to copy and pasting a whole line instantly
 * If any new additions dont show up in game, check Build Folder
   to make sure DataGen ran correctly
+
+Github
+    * Update - Get other peoples changes
+    * Commit - Save my changes locally
+    * Push - Upload committed changes to Github
+
+    Branches - Alternate Code So You Can Work Without Affecting Main Code
+        * Checkout - Switch to a different branch or revision
+        * Merge - Combine changes from one branch into another
+        * Rebase - Move your branch on top of another branch to create cleaner linear history
+        * Revision - A Specific Saved Version of the Project
