@@ -58,7 +58,19 @@ Crafting Recipe
             * Use Shaped() Instead of Shapeless() for Specific Positions, Because Shapeless Ignores Spaces while Shaped Doesn't
             * Must Define Multiple Letters (Line 56) for a Multi-Item Crafting Recipe
 
-
+Custom Items
+1. Add New Java Class to custom Folder
+    * Experiments Mostly
+        * Click "Item" and then CRTL+H to See all Minecraft Items and how they Work
+        * Type "override" to see More Options for Item Interactions
+2. ModItems
+    * Line 21 - Added New Item and Gave it the Durability Property
+3. Creative Tab
+    * Line 24 - Added the Item to the Creative Mode Tab
+4. ModModelProvider
+    * Line 34 - Added the Model as Well as Changed to "Hand Held Item"?
+5. Add In Game name and PNG for Texture
+6. Datagen
 
 
 
@@ -66,6 +78,8 @@ Notes
 * CRTL + D: short cut to copy and pasting a whole line instantly
 * Middle Mouse Button or CRT+Left Click to go to file where function is used
     * Used to pull up Minecraft files usually
+* Click "Item" and then CRTL+H to See all Minecraft Items and how they Work
+* Type "override" to see More Options for Item Interactions
 * If any new additions dont show up in game, check Build Folder
   to make sure DataGen ran correctly
 

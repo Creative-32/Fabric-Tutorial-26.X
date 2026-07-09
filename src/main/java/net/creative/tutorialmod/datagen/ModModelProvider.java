@@ -31,5 +31,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerators.generateFlatItem(ModItems.FLUORITE, ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.RAW_FLUORITE, ModelTemplates.FLAT_ITEM);
 
+        //Flat HandHeld Item makes Items Co-Linear instead of Perpendicular to Player Screen
+        itemModelGenerators.generateFlatItem(ModItems.Chisel, ModelTemplates.FLAT_HANDHELD_ITEM);
+
     }
 }
