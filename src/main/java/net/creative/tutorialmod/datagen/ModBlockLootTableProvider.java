@@ -29,6 +29,7 @@ public class ModBlockLootTableProvider extends FabricBlockLootSubProvider {
         // Drops Block when Mined
         dropSelf(ModBlocks.FLUORITE_BLOCK);
         dropSelf(ModBlocks.RAW_FLUORITE_BLOCK);
+        dropSelf(ModBlocks.MAGIC_BLOCK);
 
         // Drops a single piece of Ore when Mined?
         add(ModBlocks.FLUORITE_ORE, createOreDrop(ModBlocks.FLUORITE_ORE, ModItems.RAW_FLUORITE));
@@ -37,6 +38,7 @@ public class ModBlockLootTableProvider extends FabricBlockLootSubProvider {
         // Drops Random amount of Ore
         add(ModBlocks.FLUORITE_NETHER_ORE, createMultipleOreDrops(ModBlocks.FLUORITE_NETHER_ORE, ModItems.RAW_FLUORITE, 3, 6));
         add(ModBlocks.FLUORITE_END_ORE, createMultipleOreDrops(ModBlocks.FLUORITE_END_ORE, ModItems.RAW_FLUORITE, 5, 8));
+
 
     }
 

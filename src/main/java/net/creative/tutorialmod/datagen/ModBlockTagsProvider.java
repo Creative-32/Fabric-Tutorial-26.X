@@ -21,7 +21,8 @@ public class ModBlockTagsProvider extends FabricTagsProvider.BlockTagsProvider {
                 .add(ModBlocks.FLUORITE_ORE)
                 .add(ModBlocks.FLUORITE_DEEPSLATE_ORE)
                 .add(ModBlocks.FLUORITE_NETHER_ORE)
-                .add(ModBlocks.FLUORITE_END_ORE);
+                .add(ModBlocks.FLUORITE_END_ORE)
+                .add(ModBlocks.MAGIC_BLOCK);
 
         valueLookupBuilder(BlockTags.NEEDS_IRON_TOOL) // Makes blocks only able to be mined with an Iron Pickaxe and below
                 .add(ModBlocks.FLUORITE_DEEPSLATE_ORE);

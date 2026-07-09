@@ -23,6 +23,10 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModItems.Chisel);
 
+                        output.accept(ModBlocks.MAGIC_BLOCK);
+
+
+
 
                     }).build());
 
@@ -40,7 +44,13 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.FLUORITE_END_ORE);
 
 
+
+
                     }).build());
+
+
+
+
 
 
 

@@ -1,6 +1,7 @@
 package net.creative.tutorialmod.block;
 
 import net.creative.tutorialmod.TutorialMod;
+import net.creative.tutorialmod.block.custom.MagicBlock;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -37,6 +38,9 @@ public class ModBlocks {
             properties -> new DropExperienceBlock(UniformInt.of(4, 8),
                     properties.strength(6f).requiresCorrectToolForDrops()));
 
+    public static final Block MAGIC_BLOCK = registerBlock("magic_block",
+            properties -> new MagicBlock(properties.strength(2f)
+                    .requiresCorrectToolForDrops().sound(SoundType.AMETHYST)));
 
 
 
