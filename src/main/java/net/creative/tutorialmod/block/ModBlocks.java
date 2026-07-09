@@ -23,7 +23,6 @@ public class ModBlocks {
     public static final Block RAW_FLUORITE_BLOCK = registerBlock("raw_fluorite_block",
             properties -> new Block(properties.strength(3f)
                     .requiresCorrectToolForDrops()));
-
     public static final Block FLUORITE_ORE = registerBlock("fluorite_ore",
             properties -> new DropExperienceBlock(UniformInt.of(2, 5),
                     properties.strength(3f).requiresCorrectToolForDrops().sound(SoundType.STONE)));

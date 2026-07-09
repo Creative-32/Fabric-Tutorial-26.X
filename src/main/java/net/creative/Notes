@@ -37,8 +37,35 @@ Blocks
 6. Run DataGen
 
 
+Loot Table
+1. ModBlockLootTableProvider
+    * Line 30 - Block Drops Itself
+    * Line 34 - Block Drops 1 Ore
+    * Line 38 - Block Drops Random Amount
+2. ModBlockTagsProvider
+    * Line 19 - The Block Can Actually Be Mined
+    * Line 27 and 30 Controls Tier of Tool Needed to Mine the Block
+
+
+Crafting Recipe
+1. ModRecipeProvider
+    * Line 35 - List all Blocks/Items able to be Smelted/Blasted
+    * Line 40 - Can Edit Smelting Time/XP/Product
+    * line 43 - Same as Smelting but Blasting
+    * Line 52 - Shapeless Recipes
+    * Line 63 - Turn Block into 9 Items
+    * Line 72 - WARNING: If Multiple Recipe Have the Same output, id: Tag is Required to Differentiate between them
+            * Use Shaped() Instead of Shapeless() for Specific Positions, Because Shapeless Ignores Spaces while Shaped Doesn't
+            * Must Define Multiple Letters (Line 56) for a Multi-Item Crafting Recipe
+
+
+
+
+
 Notes
 * CRTL + D: short cut to copy and pasting a whole line instantly
+* Middle Mouse Button or CRT+Left Click to go to file where function is used
+    * Used to pull up Minecraft files usually
 * If any new additions dont show up in game, check Build Folder
   to make sure DataGen ran correctly
 

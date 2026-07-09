@@ -1,5 +1,8 @@
 package net.creative.tutorialmod;
 
+import net.creative.tutorialmod.datagen.ModBlockLootTableProvider;
+import net.creative.tutorialmod.datagen.ModBlockTagsProvider;
+import net.creative.tutorialmod.datagen.ModRecipeProvider;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.creative.tutorialmod.datagen.ModModelProvider;
@@ -10,5 +13,8 @@ public class TutorialModDataGenerator implements DataGeneratorEntrypoint {
 		var pack = fabricDataGenerator.createPack();
 
 		pack.addProvider(ModModelProvider::new);
+		pack.addProvider(ModBlockTagsProvider::new);
+		pack.addProvider(ModBlockLootTableProvider::new);
+		pack.addProvider(ModRecipeProvider::new);
 	}
 }

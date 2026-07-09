@@ -5,12 +5,14 @@
   "creativemodetab.tutorialmod.fluorite_items": "Fluorite Tutorial Items",
   "creativemodetab.tutorialmod.fluorite_blocks": "Fluorite Tutorial Blocks",
 
+
   "block.tutorialmod.fluorite_block": "Block of Fluorite",
   "block.tutorialmod.raw_fluorite_block": "Block of Raw Fluorite",
   "block.tutorialmod.fluorite_ore": "Fluorite Ore",
   "block.tutorialmod.fluorite_deepslate_ore": "Fluorite Deepslate Ore",
   "block.tutorialmod.fluorite_nether_ore": "Fluorite Nether Ore",
   "block.tutorialmod.fluorite_end_ore": "Fluorite End Ore",
+
 
   "item.tutorialmod.fluorite": "Fluorite",
   "item.tutorialmod.raw_fluorite": "Raw Fluorite"
