@@ -16,6 +16,7 @@ b3a0ac01c570da694c5a48803ac53ad5f4e56424 assets/tutorialmod/items/fluorite_end_o
 8fe54fac0d8b2763fdecd5fd624085c91405390a assets/tutorialmod/items/magic_block.json
 c9f5aefcd09ada451a50297fe87f61e6d9266e2d assets/tutorialmod/items/raw_fluorite.json
 00560a755d0223c9b2703475550b6df99093e416 assets/tutorialmod/items/raw_fluorite_block.json
+8ea9db75282c11ef4cda960b4676d97ea2db022e assets/tutorialmod/items/strawberry.json
 b55e43776f1d0310bd46fe712a3108e00568002d assets/tutorialmod/models/block/fluorite_block.json
 84bef66c92536b5351dd3e5d0921a7d86c5f2d50 assets/tutorialmod/models/block/fluorite_deepslate_ore.json
 12b846233ac3a5f03bd8c3aa76b2237bd355051c assets/tutorialmod/models/block/fluorite_end_ore.json
@@ -26,3 +27,4 @@ ed95a1b56248546b751aa94e25c7441dc13fc9fe assets/tutorialmod/models/block/raw_flu
 b91de6357c95acf8ea0622be5d7cb112d6ec423e assets/tutorialmod/models/item/chisel.json
 274bc448a39a256231897fcbf4596ac4db786fa2 assets/tutorialmod/models/item/fluorite.json
 86543c2d342d40575f7a48ebccdf047d274127b8 assets/tutorialmod/models/item/raw_fluorite.json
+0f4c6f5df2121954f3a0de1eb8e66d8c587fed43 assets/tutorialmod/models/item/strawberry.json

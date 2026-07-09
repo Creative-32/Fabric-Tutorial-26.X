@@ -18,12 +18,14 @@ public class ModCreativeModeTabs {
             FabricCreativeModeTab.builder().icon(() -> new ItemStack(ModItems.FLUORITE))
                     .title(Component.translatable("creativemodetab.tutorialmod.fluorite_items"))
                     .displayItems((parameters, output) -> {
-                        output.accept(ModItems.FLUORITE);
                         output.accept(ModItems.RAW_FLUORITE);
+                        output.accept(ModItems.FLUORITE);
 
                         output.accept(ModItems.Chisel);
 
                         output.accept(ModBlocks.MAGIC_BLOCK);
+
+                        output.accept(ModItems.STRAWBERRY);
 
 
 

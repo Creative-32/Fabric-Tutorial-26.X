@@ -1,11 +1,9 @@
 {
+  "item.tutorialmod.fluorite": "Fluorite",
+  "item.tutorialmod.raw_fluorite": "Raw Fluorite",
+  "item.tutorialmod.chisel": "Chisel",
+  "item.tutorialmod.strawberry": "Strawberry",
 
-
-
-  "creativemodetab.tutorialmod.fluorite_items": "Fluorite Tutorial Items",
-  "creativemodetab.tutorialmod.fluorite_blocks": "Fluorite Tutorial Blocks",
-
-  "creativemodetab.tutorialmod.chisel": "Chisel",
 
 
   "block.tutorialmod.fluorite_block": "Block of Fluorite",
@@ -14,13 +12,12 @@
   "block.tutorialmod.fluorite_deepslate_ore": "Fluorite Deepslate Ore",
   "block.tutorialmod.fluorite_nether_ore": "Fluorite Nether Ore",
   "block.tutorialmod.fluorite_end_ore": "Fluorite End Ore",
-
   "block.tutorialmod.magic_block": "Magic Block",
 
 
-  "item.tutorialmod.fluorite": "Fluorite",
-  "item.tutorialmod.raw_fluorite": "Raw Fluorite"
 
+  "creativemodetab.tutorialmod.fluorite_items": "Fluorite Tutorial Items",
+  "creativemodetab.tutorialmod.fluorite_blocks": "Fluorite Tutorial Blocks"
 
 
 }
