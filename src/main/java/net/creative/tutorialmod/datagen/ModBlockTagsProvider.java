@@ -1,5 +1,6 @@
 package net.creative.tutorialmod.datagen;
 
+import net.creative.tutorialmod.tags.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 import net.creative.tutorialmod.block.ModBlocks;
@@ -22,7 +23,6 @@ public class ModBlockTagsProvider extends FabricTagsProvider.BlockTagsProvider {
                 .add(ModBlocks.FLUORITE_DEEPSLATE_ORE)
                 .add(ModBlocks.FLUORITE_NETHER_ORE)
                 .add(ModBlocks.FLUORITE_END_ORE)
-                .add(ModBlocks.MAGIC_BLOCK)
                 .add(ModBlocks.FLUORITE_STAIRS)
                 .add(ModBlocks.FLUORITE_SLAB)
                 .add(ModBlocks.FLUORITE_FENCE)
@@ -39,6 +39,7 @@ public class ModBlockTagsProvider extends FabricTagsProvider.BlockTagsProvider {
                 .add(ModBlocks.FLUORITE_DEEPSLATE_ORE);
 
         valueLookupBuilder(BlockTags.NEEDS_DIAMOND_TOOL) // Makes blocks only able to be mined with a Diamond Pickaxe and below
+                .add(ModBlocks.MAGIC_BLOCK)
                 .add(ModBlocks.FLUORITE_NETHER_ORE)
                 .add(ModBlocks.FLUORITE_END_ORE);
 
@@ -56,6 +57,28 @@ public class ModBlockTagsProvider extends FabricTagsProvider.BlockTagsProvider {
 
         valueLookupBuilder(BlockTags.DOORS).add(ModBlocks.FLUORITE_DOOR);
         valueLookupBuilder(BlockTags.TRAPDOORS).add(ModBlocks.FLUORITE_TRAPDOOR);
+
+        // ---------------------------------------------------------
+        valueLookupBuilder(ModTags.Blocks.NEEDS_FLUORITE_TOOL)
+                .add(ModBlocks.MAGIC_BLOCK)
+                // Can Mine Magic Block + Everything an Iron Tool Can
+                .addTag(BlockTags.NEEDS_IRON_TOOL);
+
+        valueLookupBuilder(ModTags.Blocks.INCORRECT_FOR_FLUORITE_TOOL)
+                // Fluorite Tool Cannot Mine Anything that Requires a Diamond Tool
+                .addTag(BlockTags.NEEDS_DIAMOND_TOOL);
+        // ---------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
 
 
     }

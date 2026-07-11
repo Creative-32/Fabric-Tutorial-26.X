@@ -105,6 +105,19 @@ Custom Block
 
 ------------------------------------------------------------------------------------------------------------------------
 
+Tools
+    * ModCreativeModeTabs
+    * ModBlockTagsProvider - Specify Tier Level of Pickaxe Along with Any Blocks that Specific Tool can Specially Mine (Line 61-70)
+    * ModItemsTagProvider - Allows Items to Be Enchanted as that Specific Tool Type (Line 27-32)
+    * ModModelProvider - (Line 63-68)
+    * ModRecipeProvider - (Line 127-197
+    * ModItems - (Line 36-85)
+    * ModToolMaterials - ???
+    * ModTags - (Line 12-15 and 26-29)
+    * en_us.json & Item Textures
+
+------------------------------------------------------------------------------------------------------------------------
+
 Custom Food
     1. Add New Java Class to custom Folder
         * Experiments Mostly
@@ -156,10 +169,11 @@ Loot Table
 
 Custom ToolTips
     * Items - ModItems Line 32-38
-    * Blocks - ModBlocks Line 50
+    * Blocks - ModBlocks Line 50 (Names are on Line 41, 56, 58)
     * On Shift - ChesilItem Line 68/78
-               - ModItems Line 45/54
+               - ModItems Line 39/43 and Line 52/61
         * Too add ToolTips, add the ToolTip Function in the last Parenthesis of the Desired Item/Block and Make sure to include the {} and @Override
+            * Then Add Tooltips into teh en_us.json File
 
 ------------------------------------------------------------------------------------------------------------------------
 
@@ -176,6 +190,21 @@ Custom Tags - Used as a List, So we can Call the List Instead of Adding Everythi
 
 
 
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------
+
+Vanilla Code & Other Mods
+    * Middle Mouse Button/ CTRL+Left Click on Item/Block or any other Class to Open up the Vanilla Folder to See how Vanilla Items are Coded
+            * Click the Package (Top Line) to Open the Whole Vanilla Folder
+                    * All Rights Reserved - "Cannot" Use Code ;)
+                    * MIT Licence - Can Use their Code
+
+------------------------------------------------------------------------------------------------------------------------
 
 
 

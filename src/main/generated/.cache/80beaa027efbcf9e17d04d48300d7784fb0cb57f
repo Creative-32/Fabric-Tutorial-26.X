@@ -2,10 +2,12 @@
 8b21129069f1ac9ac16b52da3381ca127cf969dc data/minecraft/tags/block/doors.json
 b96af12f0816fed2734564c13c429281c4307c79 data/minecraft/tags/block/fence_gates.json
 9268cd5b22bc00db499526376630c97dcdf9f42b data/minecraft/tags/block/fences.json
-ef061cd49618373ee7441f7ec671dc17c6eebb7b data/minecraft/tags/block/mineable/pickaxe.json
-91c0c7b996f2a4ec93bb3f508eb6a3d47ceb963a data/minecraft/tags/block/needs_diamond_tool.json
+e11f623205b92aab7095c1b6ae81b9d12c3c4508 data/minecraft/tags/block/mineable/pickaxe.json
+499133281fd542eb8371befb2d2708f0c8fbf5e0 data/minecraft/tags/block/needs_diamond_tool.json
 09b69dd749a4b48f17e7f17cf83683a85fe74baa data/minecraft/tags/block/needs_iron_tool.json
 f0b4d55c5d1137e52cd887f3f4e05502b99b7385 data/minecraft/tags/block/slabs.json
 e8cb45a67b79616e2e1b3565f3aa5ef0bc6e2d5a data/minecraft/tags/block/stairs.json
 a57b1c7242906614c9b11700650889a0f35c6054 data/minecraft/tags/block/trapdoors.json
 0d1f452be27f38eb1f96dee1ba12db3b118807ba data/minecraft/tags/block/walls.json
+a249c46329a41538f49a564e1f14338aaf1be5a0 data/tutorialmod/tags/block/incorrect_for_fluorite_tool.json
+c07c4c3be2f1e2228e70cca883d68ce9bd7ba47e data/tutorialmod/tags/block/needs_fluorite_tool.json

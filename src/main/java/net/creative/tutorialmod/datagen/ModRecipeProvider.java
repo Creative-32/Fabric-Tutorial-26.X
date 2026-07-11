@@ -124,8 +124,77 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .group("fluorite")
                         .save(output);
 
+                // Sword
+                shaped(RecipeCategory.COMBAT, ModItems.FLUORITE_SWORD)
+                        .pattern("F")
+                        .pattern("F")
+                        .pattern("S")
+                        .define('F', ModItems.FLUORITE)
+                        .define('S', Items.STICK)
+                        .unlockedBy(getHasName(ModItems.FLUORITE), has(ModItems.FLUORITE))
+                        .unlockedBy(getHasName(Items.STICK), has(Items.STICK))
+                        .group("fluorite")
+                        .save(output);
 
+                // Pickaxe
+                shaped(RecipeCategory.TOOLS, ModItems.FLUORITE_PICKAXE)
+                        .pattern("FFF")
+                        .pattern(" S ")
+                        .pattern(" S ")
+                        .define('F', ModItems.FLUORITE)
+                        .define('S', Items.STICK)
+                        .unlockedBy(getHasName(ModItems.FLUORITE), has(ModItems.FLUORITE))
+                        .unlockedBy(getHasName(Items.STICK), has(Items.STICK))
+                        .group("fluorite")
+                        .save(output);
 
+                // Shovel
+                shaped(RecipeCategory.TOOLS, ModItems.FLUORITE_SHOVEL)
+                        .pattern("F")
+                        .pattern("S")
+                        .pattern("S")
+                        .define('F', ModItems.FLUORITE)
+                        .define('S', Items.STICK)
+                        .unlockedBy(getHasName(ModItems.FLUORITE), has(ModItems.FLUORITE))
+                        .unlockedBy(getHasName(Items.STICK), has(Items.STICK))
+                        .group("fluorite")
+                        .save(output);
+
+                // Axe
+                shaped(RecipeCategory.TOOLS, ModItems.FLUORITE_AXE)
+                        .pattern("FF")
+                        .pattern("SF")
+                        .pattern("S ")
+                        .define('F', ModItems.FLUORITE)
+                        .define('S', Items.STICK)
+                        .unlockedBy(getHasName(ModItems.FLUORITE), has(ModItems.FLUORITE))
+                        .unlockedBy(getHasName(Items.STICK), has(Items.STICK))
+                        .group("fluorite")
+                        .save(output);
+
+                // Hoe
+                shaped(RecipeCategory.TOOLS, ModItems.FLUORITE_HOE)
+                        .pattern("FF")
+                        .pattern("S ")
+                        .pattern("S ")
+                        .define('F', ModItems.FLUORITE)
+                        .define('S', Items.STICK)
+                        .unlockedBy(getHasName(ModItems.FLUORITE), has(ModItems.FLUORITE))
+                        .unlockedBy(getHasName(Items.STICK), has(Items.STICK))
+                        .group("fluorite")
+                        .save(output);
+
+                // Spear
+                shaped(RecipeCategory.COMBAT, ModItems.FLUORITE_SPEAR)
+                        .pattern("  F")
+                        .pattern(" S ")
+                        .pattern("S  ")
+                        .define('F', ModItems.FLUORITE)
+                        .define('S', Items.STICK)
+                        .unlockedBy(getHasName(ModItems.FLUORITE), has(ModItems.FLUORITE))
+                        .unlockedBy(getHasName(Items.STICK), has(Items.STICK))
+                        .group("fluorite")
+                        .save(output);
 
 
 

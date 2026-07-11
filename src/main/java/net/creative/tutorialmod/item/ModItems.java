@@ -11,40 +11,43 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.TooltipDisplay;
 
 import java.util.function.Consumer;
 import java.util.function.Function;
 
 public class ModItems {
-    // 2
+
+
+
+    // --------------------------------------        Ore        --------------------------------------
     public static final Item FLUORITE = registerItem("fluorite", Item::new);
     public static final Item RAW_FLUORITE = registerItem("raw_fluorite", Item::new);
 
-    // Tool
+
+
+    // --------------------------------------       Items       --------------------------------------
     public static final Item Chisel = registerItem("chisel", properties ->  new ChiselItem(properties.durability(32)));
 
-    // Consumable
+
+
+    // --------------------------------------    Consumable    --------------------------------------
     public static final Item STRAWBERRY = registerItem("strawberry", properties ->  new Item(properties
             .food(ModFoods.STRAWBERRY, ModFoods.STRAWBERRY_CONSUMABLE))
-
     // Regular Tooltip
     {@Override
         public void appendHoverText(ItemStack itemStack, TooltipContext context, TooltipDisplay display, Consumer<Component> builder, TooltipFlag tooltipFlag) {
             builder.accept(Component.translatable("tooltip.tutorialmod.strawberry"));
             super.appendHoverText(itemStack, context, display, builder, tooltipFlag);
         }}
-
     );
 
-    // Fuel
+
+
+    // --------------------------------------       Fuels       --------------------------------------
     public static final Item COMBUSTIBLE_SPORES = registerItem("combustible_spores",
             properties -> new Item(properties.stacksTo(16))
-
             // ToolTip on Shift
             {@Override
                 public void appendHoverText(ItemStack itemStack, TooltipContext context, TooltipDisplay display,
@@ -56,8 +59,40 @@ public class ModItems {
                     }
                     super.appendHoverText(itemStack, context, display, builder, tooltipFlag);
                 }}
-
             );
+
+
+
+    // --------------------------------------       Tools       --------------------------------------
+    // Sword
+    public static final Item FLUORITE_SWORD = registerItem("fluorite_sword",
+            properties -> new Item(properties.sword(ModToolMaterials.FLUORITE, 3, -2.4f)));
+    // Pickaxe
+    public static final Item FLUORITE_PICKAXE = registerItem("fluorite_pickaxe",
+            properties -> new Item(properties.pickaxe(ModToolMaterials.FLUORITE, 1, -2.8f)));
+    // Shovel
+    public static final Item FLUORITE_SHOVEL = registerItem("fluorite_shovel",
+            properties -> new ShovelItem(ModToolMaterials.FLUORITE, 1.5f, -3.0f, properties));
+    // Axe
+    public static final Item FLUORITE_AXE = registerItem("fluorite_axe",
+            properties -> new AxeItem(ModToolMaterials.FLUORITE, 6f, -3.2f, properties));
+    // Hoe
+    public static final Item FLUORITE_HOE = registerItem("fluorite_hoe",
+            properties -> new HoeItem(ModToolMaterials.FLUORITE, 0f, -3.0f, properties));
+    // Spear
+    public static final Item FLUORITE_SPEAR = registerItem("fluorite_spear",
+            properties -> new Item(properties.spear(ModToolMaterials.FLUORITE, 0.95F, 0.95F, 0.6F,
+                    2.5F, 11.0F, 6.75F, 5.1F, 11.25F, 4.6F)));
+
+
+
+
+
+
+
+
+
+
 
 
     private static Item registerItem(String name, Function<Item.Properties, Item> function) {
