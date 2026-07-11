@@ -38,6 +38,9 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.FLUORITE_FENCE_GATE);
                         output.accept(ModBlocks.FLUORITE_WALL);
 
+                        output.accept(ModBlocks.FLUORITE_DOOR);
+                        output.accept(ModBlocks.FLUORITE_TRAPDOOR);
+
 
 
 

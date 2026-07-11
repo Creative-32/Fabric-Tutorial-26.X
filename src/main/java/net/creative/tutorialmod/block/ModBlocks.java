@@ -90,6 +90,17 @@ public class ModBlocks {
     public static final Block FLUORITE_WALL = registerBlock("fluorite_wall",
             properties -> new WallBlock(properties.strength(3f).requiresCorrectToolForDrops()));
 
+    // Door
+    public static final Block FLUORITE_DOOR = registerBlock("fluorite_door",
+
+            properties -> new DoorBlock(BlockSetType.ACACIA, properties.strength(3f)
+                    .requiresCorrectToolForDrops().noOcclusion())); // .noOcclusion - For Transparent Pixels Otherwise it will be a Xray
+
+    // Trap Door
+    public static final Block FLUORITE_TRAPDOOR = registerBlock("fluorite_trapdoor",
+            properties -> new TrapDoorBlock(BlockSetType.ACACIA, properties.strength(3f)
+                    .requiresCorrectToolForDrops().noOcclusion()));
+
 
 
 

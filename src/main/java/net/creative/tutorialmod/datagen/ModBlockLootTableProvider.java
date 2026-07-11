@@ -33,7 +33,7 @@ public class ModBlockLootTableProvider extends FabricBlockLootSubProvider {
         // Stair
         dropSelf(ModBlocks.FLUORITE_STAIRS);
         // Slab
-        add(ModBlocks.FLUORITE_SLAB, this::createSlabItemTable);
+        add(ModBlocks.FLUORITE_SLAB, this::createSlabItemTable); // 2 Blocks in One
         // Pressure Plate
         dropSelf(ModBlocks.FLUORITE_PRESSURE_PLATE);
         // Button
@@ -44,19 +44,24 @@ public class ModBlockLootTableProvider extends FabricBlockLootSubProvider {
         dropSelf(ModBlocks.FLUORITE_FENCE_GATE);
         // Wall
         dropSelf(ModBlocks.FLUORITE_WALL);
+        // Door
+        add(ModBlocks.FLUORITE_DOOR, this::createDoorTable); // 2 Blocks in One
+        // Trap Door
+        dropSelf(ModBlocks.FLUORITE_TRAPDOOR);
 
-        // Drops a single piece of Ore when Mined?
+
+
+        // Drops a Single Piece of Ore when Mined?
         add(ModBlocks.FLUORITE_ORE, createOreDrop(ModBlocks.FLUORITE_ORE, ModItems.RAW_FLUORITE));
         add(ModBlocks.FLUORITE_DEEPSLATE_ORE, createOreDrop(ModBlocks.FLUORITE_DEEPSLATE_ORE, ModItems.RAW_FLUORITE));
 
-        // Drops Random amount of Ore
+        // Drops Random Amount of Ore
         add(ModBlocks.FLUORITE_NETHER_ORE, createMultipleOreDrops(ModBlocks.FLUORITE_NETHER_ORE, ModItems.RAW_FLUORITE, 3, 6));
         add(ModBlocks.FLUORITE_END_ORE, createMultipleOreDrops(ModBlocks.FLUORITE_END_ORE, ModItems.RAW_FLUORITE, 5, 8));
 
-
     }
 
-    // Loot Table & Enchant effects???
+    // Loot Table & Enchant Effects???
     public LootTable.Builder createMultipleOreDrops(final Block block, Item item, float minDrops, float maxDrops) {
         HolderLookup.RegistryLookup<Enchantment> enchantments = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
 
