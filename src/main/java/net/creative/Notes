@@ -98,8 +98,26 @@ Custom Food
     * Creative Tab
     * ModItems - Creates Item
 
+Custom Fuel
+1. ModFuel
+    * Line 9 - What Item and How Long it Burns
+2. Add to
+    * Creative Tab
+    * ModModelProvider
+    * ModItems - Line 28: Item Stack
+    * en_us.json and texture
+
+Custom ToolTips
+    * Items - ModItems Line 32-38
+    * Blocks - ModBlocks Line 50
+    * On Shift - ChesilItem Line 68/78
+               - ModItems Line 45/54
+        * Too add ToolTips, add the ToolTip Function in the last Parenthesis of the Desired Item/Block and Make sure to include the {} and @Override
+
+
 
 Notes
+* 20 ticks per Sec
 * CRTL + D: short cut to copy and pasting a whole line instantly
 * Middle Mouse Button or CRT+Left Click to go to file where function is used
     * Used to pull up Minecraft files usually
