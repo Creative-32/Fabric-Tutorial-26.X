@@ -23,13 +23,24 @@ public class ModItemTagsProvider extends FabricTagsProvider.ItemTagsProvider {
                 .add(Items.COAL)
                 .add(Items.BRICK);
 
-        // Allows Items to Be Enchanted as that Specific Tool
+        // Allows Items to Be Enchanted as that Specific Item
         valueLookupBuilder(ItemTags.SWORDS).add(ModItems.FLUORITE_SWORD);
         valueLookupBuilder(ItemTags.PICKAXES).add(ModItems.FLUORITE_PICKAXE);
         valueLookupBuilder(ItemTags.SHOVELS).add(ModItems.FLUORITE_SHOVEL);
         valueLookupBuilder(ItemTags.AXES).add(ModItems.FLUORITE_AXE);
         valueLookupBuilder(ItemTags.HOES).add(ModItems.FLUORITE_HOE);
         valueLookupBuilder(ItemTags.SPEARS).add(ModItems.FLUORITE_SPEAR);
+
+        valueLookupBuilder(ItemTags.HEAD_ARMOR).add(ModItems.FLUORITE_HELMET);
+        valueLookupBuilder(ItemTags.CHEST_ARMOR).add(ModItems.FLUORITE_CHESTPLATE);
+        valueLookupBuilder(ItemTags.LEG_ARMOR).add(ModItems.FLUORITE_LEGGINGS);
+        valueLookupBuilder(ItemTags.FOOT_ARMOR).add(ModItems.FLUORITE_BOOTS);
+
+
+
+
+
+
 
 
     }

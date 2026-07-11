@@ -13,6 +13,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.TooltipDisplay;
+import net.minecraft.world.item.equipment.ArmorType;
 
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -85,6 +86,19 @@ public class ModItems {
                     2.5F, 11.0F, 6.75F, 5.1F, 11.25F, 4.6F)));
 
 
+    // --------------------------------------       Armors       --------------------------------------
+    // Helmet
+    public static final Item FLUORITE_HELMET = registerItem("fluorite_helmet",
+            properties -> new Item(properties.humanoidArmor(ModArmorMaterials.FLUORITE_ARMOR_MATERIAL, ArmorType.HELMET)));
+    // ChestPlate
+    public static final Item FLUORITE_CHESTPLATE = registerItem("fluorite_chestplate",
+            properties -> new Item(properties.humanoidArmor(ModArmorMaterials.FLUORITE_ARMOR_MATERIAL, ArmorType.CHESTPLATE)));
+    // Legging
+    public static final Item FLUORITE_LEGGINGS = registerItem("fluorite_leggings",
+            properties -> new Item(properties.humanoidArmor(ModArmorMaterials.FLUORITE_ARMOR_MATERIAL, ArmorType.LEGGINGS)));
+    // Boots
+    public static final Item FLUORITE_BOOTS = registerItem("fluorite_boots",
+            properties -> new Item(properties.humanoidArmor(ModArmorMaterials.FLUORITE_ARMOR_MATERIAL, ArmorType.BOOTS)));
 
 
 

@@ -14,6 +14,13 @@
   "item.tutorialmod.fluorite_spear": "Fluorite Spear",
 
 
+  "item.tutorialmod.fluorite_helmet": "Fluorite Helmet",
+  "item.tutorialmod.fluorite_chestplate": "Fluorite Chestplate",
+  "item.tutorialmod.fluorite_leggings": "Fluorite Leggings",
+  "item.tutorialmod.fluorite_boots": "Fluorite Boots",
+
+
+
   "block.tutorialmod.fluorite_block": "Block of Fluorite",
   "block.tutorialmod.raw_fluorite_block": "Block of Raw Fluorite",
   "block.tutorialmod.fluorite_ore": "Fluorite Ore",
