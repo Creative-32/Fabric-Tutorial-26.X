@@ -114,6 +114,9 @@ Custom ToolTips
                - ModItems Line 45/54
         * Too add ToolTips, add the ToolTip Function in the last Parenthesis of the Desired Item/Block and Make sure to include the {} and @Override
 
+Custom Tags - Used as a List, So we can Call the List Instead of Adding Everything into the Function one by one
+        * Changed Magic Block to Call the Tag Instead of Having a HardCoded List
+            * MagicBlock - Line 65
 
 
 Notes

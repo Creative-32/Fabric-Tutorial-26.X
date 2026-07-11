@@ -1,6 +1,7 @@
 package net.creative.tutorialmod.block.custom;
 
 import net.creative.tutorialmod.item.ModItems;
+import net.creative.tutorialmod.tags.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
@@ -60,9 +61,12 @@ public class MagicBlock extends Block {
     //      * Map - Stores Relationship Between Items
     //      * isValidItem - Checks if the is Item Allowed
     private boolean isValidItem(ItemStack item) {
-        return item.is(ModItems.FLUORITE)
-                || item.is(Items.IRON_INGOT)
-                || item.is(Items.COAL);
+        // New Method w/ Tags
+        return item.is(ModTags.Items.TRANSFORMABLE_ITEMS);
+        // Old Method
+        //return item.is(ModItems.FLUORITE)
+        //        || item.is(Items.IRON_INGOT)
+        //        || item.is(Items.COAL);
     }
 }
 
