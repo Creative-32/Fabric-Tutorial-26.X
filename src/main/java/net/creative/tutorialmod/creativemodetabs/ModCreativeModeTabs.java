@@ -34,6 +34,10 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.FLUORITE_PRESSURE_PLATE);
                         output.accept(ModBlocks.FLUORITE_BUTTON);
 
+                        output.accept(ModBlocks.FLUORITE_FENCE);
+                        output.accept(ModBlocks.FLUORITE_FENCE_GATE);
+                        output.accept(ModBlocks.FLUORITE_WALL);
+
 
 
 
@@ -51,6 +55,8 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModBlocks.FLUORITE_NETHER_ORE);
                         output.accept(ModBlocks.FLUORITE_END_ORE);
+
+
 
 
 

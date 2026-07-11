@@ -51,11 +51,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 //      * Can have Max of 3 .Pattern with 3 R per .Pattern
                 // These Recipes Can Be Used In Any Position of the Table
                 shaped(RecipeCategory.MISC, ModBlocks.RAW_FLUORITE_BLOCK)
-                        .pattern("AAA")
-                        .pattern("ARR")
-                        .pattern("ARR")
+                        .pattern("RRR")
+                        .pattern("RRR")
+                        .pattern("RRR")
                         .define('R', ModItems.RAW_FLUORITE)
-                        .define('A', Items.AIR)
                         // Unlocks Recipe in the Recipe Book
                         .unlockedBy(getHasName(ModItems.RAW_FLUORITE), has(ModItems.RAW_FLUORITE))
                         .group("fluorite")
@@ -98,7 +97,20 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .group("fluorite")
                         .save(output);
 
+                // Fence
+                fenceBuilder(ModBlocks.FLUORITE_FENCE, Ingredient.of(ModItems.FLUORITE))
+                        .unlockedBy(getHasName(ModItems.FLUORITE), has(ModItems.FLUORITE))
+                        .group("fluorite")
+                        .save(output);
 
+                // Gate
+                fenceGateBuilder(ModBlocks.FLUORITE_FENCE_GATE, Ingredient.of(ModItems.FLUORITE))
+                        .unlockedBy(getHasName(ModItems.FLUORITE), has(ModItems.FLUORITE))
+                        .group("fluorite")
+                        .save(output);
+
+                // Wall
+                wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.FLUORITE_WALL, ModBlocks.FLUORITE_BLOCK);
 
 
             }

@@ -8,6 +8,8 @@ import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.model.ModelTemplates;
 
+import static net.minecraft.client.data.models.model.TextureMapping.fence;
+
 public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricPackOutput output) {
         super(output);
@@ -31,8 +33,10 @@ public class ModModelProvider extends FabricModelProvider {
                 .stairs(ModBlocks.FLUORITE_STAIRS)
                 .slab(ModBlocks.FLUORITE_SLAB)
                 .pressurePlate(ModBlocks.FLUORITE_PRESSURE_PLATE)
-                .button(ModBlocks.FLUORITE_BUTTON);
-
+                .button(ModBlocks.FLUORITE_BUTTON)
+                .fence(ModBlocks.FLUORITE_FENCE)
+                .fenceGate(ModBlocks.FLUORITE_FENCE_GATE)
+                .wall(ModBlocks.FLUORITE_WALL);
     }
 
     @Override

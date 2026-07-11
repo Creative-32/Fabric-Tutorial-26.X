@@ -39,6 +39,11 @@ public class ModBlockTagsProvider extends FabricTagsProvider.BlockTagsProvider {
         valueLookupBuilder(BlockTags.STAIRS).add(ModBlocks.FLUORITE_STAIRS);
         valueLookupBuilder(BlockTags.SLABS).add(ModBlocks.FLUORITE_SLAB);
 
+        valueLookupBuilder(BlockTags.FENCES).add(ModBlocks.FLUORITE_FENCE);
+        //      * .Fence - Connects to Brick Fences
+        //      * .WoodenFence - Connects to Wooden Fences
+        valueLookupBuilder(BlockTags.FENCE_GATES).add(ModBlocks.FLUORITE_FENCE_GATE);
+        valueLookupBuilder(BlockTags.WALLS).add(ModBlocks.FLUORITE_WALL);
 
 
 
