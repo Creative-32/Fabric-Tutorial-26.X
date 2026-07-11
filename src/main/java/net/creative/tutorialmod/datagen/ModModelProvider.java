@@ -29,7 +29,9 @@ public class ModModelProvider extends FabricModelProvider {
         // Changed to Block Family since Texture is the Same for Every Side
         blockModelGenerators.family(ModBlocks.FLUORITE_BLOCK)
                 .stairs(ModBlocks.FLUORITE_STAIRS)
-                .slab(ModBlocks.FLUORITE_SLAB);
+                .slab(ModBlocks.FLUORITE_SLAB)
+                .pressurePlate(ModBlocks.FLUORITE_PRESSURE_PLATE)
+                .button(ModBlocks.FLUORITE_BUTTON);
 
     }
 

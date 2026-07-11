@@ -34,6 +34,10 @@ public class ModBlockLootTableProvider extends FabricBlockLootSubProvider {
         dropSelf(ModBlocks.FLUORITE_STAIRS);
         // Slab
         add(ModBlocks.FLUORITE_SLAB, this::createSlabItemTable);
+        // Pressure Plate
+        dropSelf(ModBlocks.FLUORITE_PRESSURE_PLATE);
+        // Button
+        dropSelf(ModBlocks.FLUORITE_BUTTON);
 
 
         // Drops a single piece of Ore when Mined?

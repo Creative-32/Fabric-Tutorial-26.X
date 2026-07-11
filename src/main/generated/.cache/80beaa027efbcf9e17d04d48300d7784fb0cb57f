@@ -2,5 +2,5 @@
 5e7afa457be52b8070652ebe5df68f6a8bba1c26 data/minecraft/tags/block/mineable/pickaxe.json
 91c0c7b996f2a4ec93bb3f508eb6a3d47ceb963a data/minecraft/tags/block/needs_diamond_tool.json
 09b69dd749a4b48f17e7f17cf83683a85fe74baa data/minecraft/tags/block/needs_iron_tool.json
-8c019b47136a16371ef04386ae13da3973127027 data/minecraft/tags/block/slabs.json
-3dc421f3f81f32add48f38406a1626f63f9669d3 data/minecraft/tags/block/stairs.json
+f0b4d55c5d1137e52cd887f3f4e05502b99b7385 data/minecraft/tags/block/slabs.json
+e8cb45a67b79616e2e1b3565f3aa5ef0bc6e2d5a data/minecraft/tags/block/stairs.json

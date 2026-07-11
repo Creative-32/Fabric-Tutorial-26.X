@@ -36,6 +36,8 @@ public class ModBlockTagsProvider extends FabricTagsProvider.BlockTagsProvider {
         // Doesn't Do Anything, Another Mod Might need them tho
         valueLookupBuilder(BlockTags.STAIRS).add(ModBlocks.FLUORITE_STAIRS);
         valueLookupBuilder(BlockTags.SLABS).add(ModBlocks.FLUORITE_SLAB);
+        valueLookupBuilder(BlockTags.STAIRS).add(ModBlocks.FLUORITE_STAIRS);
+        valueLookupBuilder(BlockTags.SLABS).add(ModBlocks.FLUORITE_SLAB);
 
 
 

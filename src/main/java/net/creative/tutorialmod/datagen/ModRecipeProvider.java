@@ -32,7 +32,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
                 // Type "this." to See More Methods
 
-                // All Blocks/Items that can be Smelted/Blasted
+                // List of All Blocks/Items that can be Smelted/Blasted
                 List<ItemLike> FLUORITE_SMELTABLES = List.of(ModItems.RAW_FLUORITE, ModBlocks.FLUORITE_ORE, ModBlocks.FLUORITE_DEEPSLATE_ORE,
                         ModBlocks.FLUORITE_NETHER_ORE, ModBlocks.FLUORITE_END_ORE);
 
@@ -51,10 +51,11 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 //      * Can have Max of 3 .Pattern with 3 R per .Pattern
                 // These Recipes Can Be Used In Any Position of the Table
                 shaped(RecipeCategory.MISC, ModBlocks.RAW_FLUORITE_BLOCK)
-                        .pattern("RRR")
-                        .pattern("RRR")
-                        .pattern("RRR")
+                        .pattern("AAA")
+                        .pattern("ARR")
+                        .pattern("ARR")
                         .define('R', ModItems.RAW_FLUORITE)
+                        .define('A', Items.AIR)
                         // Unlocks Recipe in the Recipe Book
                         .unlockedBy(getHasName(ModItems.RAW_FLUORITE), has(ModItems.RAW_FLUORITE))
                         .group("fluorite")
@@ -79,14 +80,25 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .group("fluorite")
                         .save(output, "raw_fluorite_from_fluorite_and_stick");
 
-                // Crafting Stairs
+                // Stairs
                 stairBuilder(ModBlocks.FLUORITE_STAIRS, Ingredient.of(ModBlocks.FLUORITE_BLOCK))
                         .unlockedBy(getHasName(ModBlocks.FLUORITE_BLOCK), has(ModBlocks.FLUORITE_BLOCK))
                         .group("fluorite")
                         .save(output); // Any Method with Builder in the Name Requires a manual .save
 
-                // Crafting Slabs
+                // Slabs
                 slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.FLUORITE_SLAB, ModBlocks.FLUORITE_BLOCK);
+
+                // Pressure Plate
+                pressurePlate(ModBlocks.FLUORITE_PRESSURE_PLATE, ModItems.FLUORITE);
+
+                // Button
+                buttonBuilder(ModBlocks.FLUORITE_BUTTON, Ingredient.of(ModItems.FLUORITE))
+                        .unlockedBy(getHasName(ModItems.FLUORITE), has(ModItems.FLUORITE))
+                        .group("fluorite")
+                        .save(output);
+
+
 
 
             }

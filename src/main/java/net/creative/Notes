@@ -8,6 +8,7 @@ Creative Tabs
             * "Create Translation" aka Add name to en_us.json
         * Add/Remove Items from Tab by Editing Line 21-24
 
+------------------------------------------------------------------------------------------------------------------------
 
 Items:
 1. ModModelProvider
@@ -23,6 +24,22 @@ Items:
 5. DataGen
 
 
+Custom Items
+1. Add New Java Class to custom Folder
+    * Experiments Mostly
+        * Click "Item" and then CRTL+H to See all Minecraft Items and how they Work
+        * Type "override" to see More Options for Item Interactions
+2. ModItems
+    * Line 21 - Added New Item and Gave it the Durability Property
+3. Creative Tab
+    * Line 24 - Added the Item to the Creative Mode Tab
+4. ModModelProvider
+    * Line 34 - Added the Model as Well as Changed to "Hand Held Item"?
+5. Add In Game name and PNG for Texture
+6. DataGen
+
+------------------------------------------------------------------------------------------------------------------------
+
 Blocks
 1. ModBlocks
     * Copy Line 20-22, then Rename Block and desired toughness
@@ -37,40 +54,31 @@ Blocks
 6. Run DataGen
 
 
-Loot Table
-1. ModBlockLootTableProvider
-    * Line 30 - Block Drops Itself
-    * Line 34 - Block Drops 1 Ore
-    * Line 38 - Block Drops Random Amount
-2. ModBlockTagsProvider
-    * Line 19 - The Block Can Actually Be Mined
-    * Line 27 and 30 Controls Tier of Tool Needed to Mine the Block
+Stairs and slabs
+    * ModBlocks - Stairs (Line 55/57) and Slabs (Line 60/61)
+    * ModCreativeTab
+    * ModBlockLootTable - Stairs (Line 55/57) and Slabs (Line 60/61)
+    * ModBlockTagsProvider
+            * Add to Mining Tier
+            * Add ValueLookUP (Line 37)
+    * ModBlockProvider - Can Add Block Family (Line 30/32)
+    * ModRecipeProvider
+            * Stairs - Line 83/86
+            * Slabs - Line 89
+    * en_us.json
+                    * I Dont Really Like This Since it Cuts the Textures off, Leaving Inconsistencies
 
 
-Crafting Recipe
-1. ModRecipeProvider
-    * Line 35 - List all Blocks/Items able to be Smelted/Blasted
-    * Line 40 - Can Edit Smelting Time/XP/Product
-    * line 43 - Same as Smelting but Blasting
-    * Line 52 - Shapeless Recipes
-    * Line 63 - Turn Block into 9 Items
-    * Line 72 - WARNING: If Multiple Recipe Have the Same output, id: Tag is Required to Differentiate between them
-            * Use Shaped() Instead of Shapeless() for Specific Positions, Because Shapeless Ignores Spaces while Shaped Doesn't
-            * Must Define Multiple Letters (Line 56) for a Multi-Item Crafting Recipe
+Button & Pressure Plate
+* ModBlocks
+        * BlockSetType.Iron might Change, It sets the Sensitivity of the Button/Pressure Plate and what it Reacts to.
+* ModCreativeTab
+* ModLootTableProvider - Makes Block Drop Itself
+*ModBlockTagsProvider - Add to the Useless Collum Incase Another Mod wants to Use Them
+* ModModelProvider - Add to Fluorite Family
+* ModRecipeProvider -
 
-Custom Items
-1. Add New Java Class to custom Folder
-    * Experiments Mostly
-        * Click "Item" and then CRTL+H to See all Minecraft Items and how they Work
-        * Type "override" to see More Options for Item Interactions
-2. ModItems
-    * Line 21 - Added New Item and Gave it the Durability Property
-3. Creative Tab
-    * Line 24 - Added the Item to the Creative Mode Tab
-4. ModModelProvider
-    * Line 34 - Added the Model as Well as Changed to "Hand Held Item"?
-5. Add In Game name and PNG for Texture
-6. Datagen
+
 
 Custom Block
 1. Add New Java Class to custom Folder
@@ -86,6 +94,8 @@ Custom Block
     * en_us.json - Renames Block In-Game
     * Texture - How the Block Looks
 
+------------------------------------------------------------------------------------------------------------------------
+
 Custom Food
 1. Add New Java Class to custom Folder
     * Experiments Mostly
@@ -98,6 +108,8 @@ Custom Food
     * Creative Tab
     * ModItems - Creates Item
 
+------------------------------------------------------------------------------------------------------------------------
+
 Custom Fuel
 1. ModFuel
     * Line 9 - What Item and How Long it Burns
@@ -107,6 +119,32 @@ Custom Fuel
     * ModItems - Line 28: Item Stack
     * en_us.json and texture
 
+------------------------------------------------------------------------------------------------------------------------
+
+Crafting Recipe
+1. ModRecipeProvider
+    * Line 35 - List all Blocks/Items able to be Smelted/Blasted
+    * Line 40 - Can Edit Smelting Time/XP/Product
+    * line 43 - Same as Smelting but Blasting
+    * Line 52 - Shapeless Recipes
+    * Line 63 - Turn Block into 9 Items
+    * Line 72 - WARNING: If Multiple Recipe Have the Same output, id: Tag is Required to Differentiate between them
+            * Use Shaped() Instead of Shapeless() for Specific Positions, Because Shapeless Ignores Spaces while Shaped Doesn't
+            * Must Define Multiple Letters (Line 56) for a Multi-Item Crafting Recipe
+
+------------------------------------------------------------------------------------------------------------------------
+
+Loot Table
+1. ModBlockLootTableProvider
+    * Line 30 - Block Drops Itself
+    * Line 34 - Block Drops 1 Ore
+    * Line 38 - Block Drops Random Amount
+2. ModBlockTagsProvider
+    * Line 19 - The Block Can Actually Be Mined
+    * Line 27 and 30 Controls Tier of Tool Needed to Mine the Block
+
+------------------------------------------------------------------------------------------------------------------------
+
 Custom ToolTips
     * Items - ModItems Line 32-38
     * Blocks - ModBlocks Line 50
@@ -114,9 +152,23 @@ Custom ToolTips
                - ModItems Line 45/54
         * Too add ToolTips, add the ToolTip Function in the last Parenthesis of the Desired Item/Block and Make sure to include the {} and @Override
 
+------------------------------------------------------------------------------------------------------------------------
+
 Custom Tags - Used as a List, So we can Call the List Instead of Adding Everything into the Function one by one
         * Changed Magic Block to Call the Tag Instead of Having a HardCoded List
             * MagicBlock - Line 65
+
+------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
 
 
 Notes
