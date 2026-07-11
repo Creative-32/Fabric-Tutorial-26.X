@@ -14,28 +14,29 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.TooltipDisplay;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.DropExperienceBlock;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 
 import java.util.function.Consumer;
 import java.util.function.Function;
 
 public class ModBlocks {
+
+    // General
     public static final Block FLUORITE_BLOCK = registerBlock("fluorite_block",
             properties -> new Block(properties.strength(4f)
                     .requiresCorrectToolForDrops().sound(SoundType.AMETHYST)));
     public static final Block RAW_FLUORITE_BLOCK = registerBlock("raw_fluorite_block",
             properties -> new Block(properties.strength(3f)
                     .requiresCorrectToolForDrops()));
+
+    // Ore
     public static final Block FLUORITE_ORE = registerBlock("fluorite_ore",
             properties -> new DropExperienceBlock(UniformInt.of(2, 5),
                     properties.strength(3f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
     public static final Block FLUORITE_DEEPSLATE_ORE = registerBlock("fluorite_deepslate_ore",
             properties -> new DropExperienceBlock(UniformInt.of(3, 6),
                     properties.strength(4f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
-
     public static final Block FLUORITE_NETHER_ORE = registerBlock("fluorite_nether_ore",
             properties -> new DropExperienceBlock(UniformInt.of(1, 5),
                     properties.strength(3f).requiresCorrectToolForDrops()));
@@ -43,11 +44,22 @@ public class ModBlocks {
             properties -> new DropExperienceBlock(UniformInt.of(4, 8),
                     properties.strength(6f).requiresCorrectToolForDrops()));
 
+    // Specialty
     public static final Block MAGIC_BLOCK = registerBlock("magic_block",
             properties -> new MagicBlock(properties.strength(2f)
                     .requiresCorrectToolForDrops().sound(SoundType.AMETHYST)),
             // Block ToolTip
             Component.translatable("tooltip.tutorialmod.magic_block"));
+
+    // Stairs
+    public static final Block FLUORITE_STAIRS = registerBlock("fluorite_stairs",
+            properties -> new StairBlock(ModBlocks.FLUORITE_BLOCK.defaultBlockState(),
+                    properties.strength(3f).requiresCorrectToolForDrops()));
+
+    // Slabs
+    public static final Block FLUORITE_SLAB = registerBlock("fluorite_slab",
+            properties -> new SlabBlock(properties.strength(3f).requiresCorrectToolForDrops()));
+
 
 
 

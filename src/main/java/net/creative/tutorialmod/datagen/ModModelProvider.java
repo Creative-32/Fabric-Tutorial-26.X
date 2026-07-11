@@ -15,21 +15,27 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockModelGenerators blockModelGenerators) {
-        blockModelGenerators.createTrivialCube(ModBlocks.FLUORITE_BLOCK);
+        //blockModelGenerators.createTrivialCube(ModBlocks.FLUORITE_BLOCK);
         blockModelGenerators.createTrivialCube(ModBlocks.RAW_FLUORITE_BLOCK);
+        // Ore
         blockModelGenerators.createTrivialCube(ModBlocks.FLUORITE_ORE);
         blockModelGenerators.createTrivialCube(ModBlocks.FLUORITE_DEEPSLATE_ORE);
-
         blockModelGenerators.createTrivialCube(ModBlocks.FLUORITE_NETHER_ORE);
         blockModelGenerators.createTrivialCube(ModBlocks.FLUORITE_END_ORE);
 
+        // Specialty
         blockModelGenerators.createTrivialCube(ModBlocks.MAGIC_BLOCK);
+
+        // Changed to Block Family since Texture is the Same for Every Side
+        blockModelGenerators.family(ModBlocks.FLUORITE_BLOCK)
+                .stairs(ModBlocks.FLUORITE_STAIRS)
+                .slab(ModBlocks.FLUORITE_SLAB);
 
     }
 
     @Override
     public void generateItemModels(ItemModelGenerators itemModelGenerators) {
-        // 1
+        // Items
         itemModelGenerators.generateFlatItem(ModItems.FLUORITE, ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.RAW_FLUORITE, ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.STRAWBERRY, ModelTemplates.FLAT_ITEM);
