@@ -21,7 +21,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.RAW_FLUORITE);
                         output.accept(ModItems.FLUORITE);
 
-                        output.accept(ModItems.Chisel);
+                        output.accept(ModItems.CHISEL);
 
                         output.accept(ModBlocks.MAGIC_BLOCK);
 

@@ -2,6 +2,7 @@ package net.creative.tutorialmod;
 
 import net.creative.tutorialmod.block.ModBlocks;
 import net.creative.tutorialmod.creativemodetabs.ModCreativeModeTabs;
+import net.creative.tutorialmod.data.ModDataComponents;
 import net.creative.tutorialmod.registries.ModFuels;
 import net.fabricmc.api.ModInitializer;
 
@@ -19,6 +20,8 @@ public class TutorialMod implements ModInitializer {
 
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
+
+		ModDataComponents.registerDataComponents();
 
 		ModFuels.registerFuels();
 	}

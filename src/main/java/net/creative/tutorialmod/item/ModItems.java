@@ -29,7 +29,7 @@ public class ModItems {
 
 
     // --------------------------------------       Items       --------------------------------------
-    public static final Item Chisel = registerItem("chisel", properties ->  new ChiselItem(properties.durability(32)));
+    public static final Item CHISEL = registerItem("chisel", properties ->  new ChiselItem(properties.durability(32)));
 
 
 
