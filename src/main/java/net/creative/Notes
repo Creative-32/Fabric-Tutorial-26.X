@@ -90,18 +90,28 @@ Doors & Trap Doors
 
 
 Custom Block
-1. Add New Java Class to custom Folder
-    * Experiments Mostly
-        * Click "Block" and then CRTL+H to See all Minecraft Blocks and how they Work
-        * Type "override" to see More Options for Item Interactions
-2. Add to
-    * ModBlocks - Basic Settings for the Block
-    * ModCreativeModeTab
-    * ModBlocksLootTable - What Loot It Drops
-    * ModBlockTagsProvider - How it Can Be Mined
-    * ModModelProvider - Block Model when it is in Hand
-    * en_us.json - Renames Block In-Game
-    * Texture - How the Block Looks
+    Magic Block
+    1. Add New Java Class to custom Folder
+        * Experiments Mostly
+            * Click "Block" and then CRTL+H to See all Minecraft Blocks and how they Work
+            * Type "override" to see More Options for Item Interactions
+    2. Add to
+        * ModBlocks - Basic Settings for the Block
+        * ModCreativeModeTab
+        * ModBlocksLootTable - What Loot It Drops
+        * ModBlockTagsProvider - How it Can Be Mined
+        * ModModelProvider - Block Model when it is in Hand
+        * en_us.json - Renames Block In-Game
+        * Texture - How the Block Looks
+
+    Lamp
+        * Add New Java Class to custom Folder
+            *  Add Function - Left Clicked Activated, Not Redstone
+        * ModBlocks - Sets durability and Light Level when On/Off
+        * ModCreativeModeTabs
+        * ModBlockLootTable
+        * ModModelProvider
+        * Name and Textures
 
 ------------------------------------------------------------------------------------------------------------------------
 

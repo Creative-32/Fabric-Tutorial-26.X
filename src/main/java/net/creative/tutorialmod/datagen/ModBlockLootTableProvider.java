@@ -48,6 +48,8 @@ public class ModBlockLootTableProvider extends FabricBlockLootSubProvider {
         add(ModBlocks.FLUORITE_DOOR, this::createDoorTable); // 2 Blocks in One
         // Trap Door
         dropSelf(ModBlocks.FLUORITE_TRAPDOOR);
+        // Lamp
+        dropSelf(ModBlocks.FLUORITE_LAMP);
 
 
 

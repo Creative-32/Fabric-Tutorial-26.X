@@ -1,13 +1,21 @@
 package net.creative.tutorialmod.datagen;
 
-import net.creative.tutorialmod.block.ModBlocks;
-import net.creative.tutorialmod.item.ModArmorMaterials;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.creative.tutorialmod.block.ModBlocks;
+import net.creative.tutorialmod.block.custom.FluoriteLampBlock;
+import net.creative.tutorialmod.item.ModArmorMaterials;
 import net.creative.tutorialmod.item.ModItems;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
+import net.minecraft.client.data.models.MultiVariant;
+import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.model.ModelTemplates;
+import net.minecraft.client.data.models.model.TextureMapping;
+import net.minecraft.client.data.models.model.TexturedModel;
+import net.minecraft.client.renderer.block.dispatch.Variant;
+import net.minecraft.resources.Identifier;
+import net.minecraft.util.random.WeightedList;
 
 import static net.minecraft.client.data.models.model.TextureMapping.fence;
 
@@ -44,6 +52,15 @@ public class ModModelProvider extends FabricModelProvider {
         // TrapDoor
         blockModelGenerators.createTrapdoor(ModBlocks.FLUORITE_TRAPDOOR);
 
+        // Blockstate is Off
+        Identifier lampOffIdentifier = TexturedModel.CUBE.create(ModBlocks.FLUORITE_LAMP, blockModelGenerators.modelOutput);
+        // Blockstate is On
+        Identifier lampOnIdentifier = blockModelGenerators.createSuffixedVariant(ModBlocks.FLUORITE_LAMP, "_on", ModelTemplates.CUBE_ALL, TextureMapping::cube);
+        // Determines which Identifier to Point To
+        blockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.dispatch(ModBlocks.FLUORITE_LAMP)
+                .with(BlockModelGenerators.createBooleanModelDispatch(FluoriteLampBlock.CLICKED,
+                        new MultiVariant(WeightedList.<Variant>builder().add(new Variant(lampOnIdentifier)).build()),
+                        new MultiVariant(WeightedList.<Variant>builder().add(new Variant(lampOffIdentifier)).build()))));
 
 
 

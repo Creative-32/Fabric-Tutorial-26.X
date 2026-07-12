@@ -1,6 +1,7 @@
 package net.creative.tutorialmod.block;
 
 import net.creative.tutorialmod.TutorialMod;
+import net.creative.tutorialmod.block.custom.FluoriteLampBlock;
 import net.creative.tutorialmod.block.custom.MagicBlock;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -100,6 +101,14 @@ public class ModBlocks {
     public static final Block FLUORITE_TRAPDOOR = registerBlock("fluorite_trapdoor",
             properties -> new TrapDoorBlock(BlockSetType.ACACIA, properties.strength(3f)
                     .requiresCorrectToolForDrops().noOcclusion()));
+
+    // Lamp
+    public static final Block FLUORITE_LAMP = registerBlock("fluorite_lamp",
+            properties -> new FluoriteLampBlock(properties.strength(3f)
+                    .requiresCorrectToolForDrops().lightLevel(state -> state.getValue(FluoriteLampBlock.CLICKED) ? 15 : 0)));
+                    // lightLevel(state -> 15) - Sets Light Level
+                    // state.getValue(FluoriteLampBlock.CLICKED) ? 15 : 0) - Sets Light Level when Lamp is Clicked
+
 
 
 
