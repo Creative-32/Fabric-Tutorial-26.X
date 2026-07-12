@@ -20,11 +20,101 @@ import net.minecraft.world.level.block.Blocks;
 import java.util.Map;
 import java.util.function.Consumer;
 
+import java.util.ArrayList;
+import java.util.List;
+
 // Click Item and the CRTL+H to See all Items and how they Work
 public class ChiselItem extends Item {
 
     // Type "override" to See More Options
 
+
+//--------------------------------------------       Click On Air       ------------------------------------------------
+    // Clears Coordinates When Right-Clicked in Air
+@Override
+public InteractionResult use(Level level, Player player, InteractionHand hand) {
+
+    ItemStack item = player.getItemInHand(hand);
+
+    if(!level.isClientSide()) {
+
+        List<BlockPos> positions = item.getOrDefault(
+                ModDataComponents.COORDINATES,
+                new ArrayList<>()
+        );
+
+        // Ctrl + Right Click Air = Clear Selection
+        if(player.isCrouching()) {
+
+            item.remove(ModDataComponents.COORDINATES);
+
+            return InteractionResult.SUCCESS;
+        }
+
+
+        // Right Click Air = Change Blocks
+        for(BlockPos pos : positions) {
+
+            Block block = level.getBlockState(pos).getBlock();
+
+            if(CHISEL_MAP.containsKey(block)) {
+                level.setBlockAndUpdate(pos,
+                        CHISEL_MAP.get(block).defaultBlockState());
+            }
+        }
+
+        if(!positions.isEmpty()) {
+            item.hurtAndBreak(1, player, hand);
+        }
+
+        return InteractionResult.SUCCESS;
+    }
+
+    return InteractionResult.PASS;
+}
+
+
+//--------------------------------------------      Click On Block      ------------------------------------------------
+    // Changes Blocks Based on Block Relationship in Map
+    @Override
+    public InteractionResult useOn(UseOnContext context) {
+
+        Level level = context.getLevel();
+
+        if (!level.isClientSide()) {
+
+            ItemStack item = context.getItemInHand();
+
+            List<BlockPos> positions = new ArrayList<>(
+                    item.getOrDefault(
+                            ModDataComponents.COORDINATES,
+                            new ArrayList<>()
+                    )
+            );
+
+            BlockPos pos = context.getClickedPos();
+
+            if (positions.contains(pos)) {
+                positions.remove(pos);
+            }
+            else if (positions.size() < 100) {
+                positions.add(pos);
+            }
+
+            // Update component correctly
+            if (positions.isEmpty()) {
+                item.remove(ModDataComponents.COORDINATES);
+            }
+            else {
+                item.set(ModDataComponents.COORDINATES, positions);
+            }
+        }
+
+        return InteractionResult.SUCCESS;
+    }
+
+
+//-------------------------------------------------      Map      -----------------------------------------------------
     // Block A Turns Into Block B
     private static final Map<Block, Block> CHISEL_MAP =
             Map.of(
@@ -51,37 +141,7 @@ public class ChiselItem extends Item {
     }
 
 
-    // Clears Coordinates When Right-Clicked in Air
-    @Override
-    public InteractionResult use(Level level, Player player, InteractionHand hand) {
-        if(player.isCrouching()) {
-            player.getMainHandItem().remove(ModDataComponents.COORDINATES);
-            return InteractionResult.SUCCESS;
-        }
-        return super.use(level, player, hand);
-    }
-
-    // Changes Blocks Based on Block Relationship in Map
-    @Override
-    public InteractionResult useOn(UseOnContext context) {
-        // use - Right click air
-        // useOn - Right click Block
-        Level level = context.getLevel();
-        Block clickedBlock = level.getBlockState(context.getClickedPos()).getBlock();
-                                                    // "!" Negates/Says No AKA Changes Occur on Server
-        if(CHISEL_MAP.containsKey(clickedBlock) && !level.isClientSide()) {
-
-            level.setBlockAndUpdate(context.getClickedPos(), CHISEL_MAP.get(clickedBlock).defaultBlockState());
-            context.getItemInHand().hurtAndBreak(1, context.getPlayer(), context.getHand());
-
-            // Set Coordinates
-            context.getItemInHand().set(ModDataComponents.COORDINATES, context.getClickedPos());
-        }
-
-        // Interaction Animation on Success
-        return InteractionResult.SUCCESS;
-    }
-
+//-----------------------------------------------      Tooltip      ---------------------------------------------------
     @Override
     public void appendHoverText(ItemStack itemStack, TooltipContext context, TooltipDisplay display,
                                 Consumer<Component> builder, TooltipFlag tooltipFlag) {
@@ -98,13 +158,16 @@ public class ChiselItem extends Item {
 
         // New Coordinate Display
         if(itemStack.has(ModDataComponents.COORDINATES)) {
-            BlockPos pos = itemStack.get(ModDataComponents.COORDINATES);
+            List<BlockPos> positions = itemStack.get(ModDataComponents.COORDINATES);
 
-            builder.accept(Component.literal("Last Block Chiseled At: ")
-                    .append("X: " + pos.getX())
-                    .append(" Y: " + pos.getY())
-                    .append(" Z: " + pos.getZ())
-            );
+            builder.accept(Component.literal("Selected Blocks: " + positions.size()));
+            for(BlockPos pos : positions) {
+                builder.accept(Component.literal(
+                        "X: " + pos.getX() +
+                                " Y: " + pos.getY() +
+                                " Z: " + pos.getZ()
+                ));
+            }
             // Puts Coordinates on the Line Below It
             //builder.accept(Component.literal("X: " + pos.getX() + " Y: " + pos.getY() + " Z: " + pos.getZ()));
         }
