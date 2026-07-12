@@ -100,7 +100,10 @@ public class ModItems {
     public static final Item FLUORITE_BOOTS = registerItem("fluorite_boots",
             properties -> new Item(properties.humanoidArmor(ModArmorMaterials.FLUORITE_ARMOR_MATERIAL, ArmorType.BOOTS)));
 
-
+    // Horse
+    public static final Item FLUORITE_HORSE_ARMOR = registerItem("fluorite_horse_armor",
+            // Change .horseArmor to Any Other Animal for their Armor Type
+            properties -> new Item(properties.horseArmor(ModArmorMaterials.FLUORITE_ARMOR_MATERIAL)));
 
 
 

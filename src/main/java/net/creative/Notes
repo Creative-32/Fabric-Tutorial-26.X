@@ -131,6 +131,12 @@ Armor
         * Each Armor Piece Should have an Item Texture
         * 3 Entity Textures are need per Set, One For Each of the Humanoid, Babies, and Leggings Folders
 
+Horse
+    * ModCreativeTab
+    * ModEquipmentAssetProvider - Add Layer for Desired Animal (Line 32-33)
+    * ModModelProvider - Adds Item Model
+    * ModItems - Creates Item (Line 104-106)
+
 ------------------------------------------------------------------------------------------------------------------------
 
 Custom Food

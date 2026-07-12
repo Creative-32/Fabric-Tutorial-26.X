@@ -28,6 +28,17 @@ public class ModEquipmentAssetProvider implements DataProvider {
                 EquipmentClientInfo.builder()
                         // Adds Layer (Human oid, Humanoid_baby, and Humanoid_Legging)
                         .addHumanoidLayers(Identifier.fromNamespaceAndPath(TutorialMod.MOD_ID, "fluorite"))
+                        // Adds Layer for horse (Wolf is .WOLF_BODY)
+                        .addLayers(EquipmentClientInfo.LayerType.HORSE_BODY,
+                                new EquipmentClientInfo.Layer(Identifier.fromNamespaceAndPath(TutorialMod.MOD_ID, "fluorite")))
+
+
+
+
+
+
+
+
                         .build());
     }
 
