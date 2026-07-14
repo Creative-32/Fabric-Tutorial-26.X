@@ -1,0 +1,24 @@
+{
+  "layers": {
+    "horse_body": [
+      {
+        "texture": "tutorialmod:fluorite"
+      }
+    ],
+    "humanoid": [
+      {
+        "texture": "tutorialmod:fluorite"
+      }
+    ],
+    "humanoid_baby": [
+      {
+        "texture": "tutorialmod:fluorite"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "tutorialmod:fluorite"
+      }
+    ]
+  }
+}
