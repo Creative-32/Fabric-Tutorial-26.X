@@ -1,0 +1,493 @@
+Tutorial Mod Development Notes
+
+========================================================================================================================
+-------------------------------------------          CREATIVE TABS          -------------------------------------------
+========================================================================================================================
+
+ModCreativeModeTabs
+    * Create a new tab by copying an existing registration (Line 16-27).
+    * Line 16 - Change the registry name.
+    * Line 17 - Change the tab identifier.
+    * Line 18 - Change the icon item.
+    * Line 19 - Change the displayed tab name.
+        * Add the translation key to en_us.json.
+    * Line 21-24 - Add or remove items from the Creative Tab.
+
+
+========================================================================================================================
+-----------------------------------------------          Items          -----------------------------------------------
+========================================================================================================================
+
+1. ModModelProvider
+    * Line 22 - Copy an existing generatedItem() entry.
+    * Rename it to the new item ID.
+    * Generates the item model during DataGen.
+
+2. ModItems
+    * Line 18 - Register the new item.
+    * Set any item properties (durability, stack size, rarity, food, etc.).
+
+3. ModCreativeModeTabs
+    * Line 32
+        * Select which Creative Tab the item belongs to.
+    * Line 35
+        * Add the item to the selected Creative Tab.
+
+4. en_us.json
+    * Line 2 - Add the in-game display name.
+
+5. Textures
+    * Add the item texture (.png).
+
+6. Data Generation
+    * Run DataGen.
+
+
+========================================================================================================================
+--------------------------------------------          Custom Items          --------------------------------------------
+========================================================================================================================
+
+1. Create a new Java class inside:
+    item/custom
+
+    Useful Tips
+        * Type "override" to view available item interactions.
+        * Press CTRL + H on Item to view the Minecraft item class hierarchy.
+
+2. ModItems
+    * Line 21 - Register the custom item.
+    * Add custom properties such as durability.
+
+3. ModCreativeModeTabs
+    * Line 24 - Add the item to the Creative Tab.
+
+4. ModModelProvider
+    * Line 34 - Register the handheld item model.
+
+5. Add
+    * Texture
+    * en_us.json translation
+
+6. Run DataGen
+
+
+========================================================================================================================
+--------------------------------------------          Custom Food          --------------------------------------------
+========================================================================================================================
+
+1. Create a new Java class inside:
+    item/custom
+
+    Useful Tips
+        * Double Shift
+        * Enable "Include Non-Project Items"
+        * Search:
+            - FoodProperties
+            - Consumable
+
+    These classes control:
+        * Nutrition
+        * Saturation
+        * Eat/Drink animation
+        * Eat duration
+        * Sounds
+        * Status effects
+        * Effect chance
+
+2. Register in
+
+    ModFoods
+        * FoodProperties
+        * Consumable
+
+    ModItems
+        * Register the item.
+
+    ModCreativeModeTabs
+        * Add to Creative Tab.
+
+    ModModelProvider
+        * Generate model.
+
+    Add
+        * Texture
+        * en_us.json
+
+3. Run DataGen
+
+
+========================================================================================================================
+--------------------------------------------          Custom Fuel          --------------------------------------------
+========================================================================================================================
+
+ModFuel
+    * Line 9
+        * Register the fuel item.
+        * Set burn time.
+
+Also update
+
+    * ModItems
+    * ModCreativeModeTabs
+    * ModModelProvider
+    * Texture
+    * en_us.json
+
+
+========================================================================================================================
+--------------------------------------------          Custom Tools          --------------------------------------------
+========================================================================================================================
+
+Update
+
+    * ModCreativeModeTabs
+
+    * ModBlockTagsProvider
+        * Line 61-70
+        * Set mining tier.
+        * Add blocks this tool can mine.
+
+    * ModItemsTagProvider
+        * Line 27-32
+        * Allows the item to receive tool enchantments.
+
+    * ModModelProvider
+        * Line 63-68
+
+    * ModRecipeProvider
+        * Line 127-197
+
+    * ModItems
+        * Line 36-85
+
+    * ModToolMaterials
+
+    * ModTags
+        * Line 12-15
+        * Line 26-29
+
+    * Texture
+    * en_us.json
+
+
+========================================================================================================================
+--------------------------------------------          Custom Armor          --------------------------------------------
+========================================================================================================================
+
+Update
+
+    * ModCreativeModeTabs
+
+    * ModEquipmentAssetProvider
+
+    * ModItemsTagProvider
+        * Line 34-37
+        * Allows armor enchantments.
+
+    * ModModelProvider
+        * Line 72-79
+
+    * ModRecipeProvider
+        * Line 199-235
+
+    * ModItems
+        * Line 90-101
+
+    * ModArmorMaterials
+
+    * ModTags
+        * Line 12-15
+        * Line 26-29
+
+    * Texture
+        * Item texture
+        * Humanoid texture
+        * Baby humanoid texture
+        * Leggings texture
+
+    * en_us.json
+
+
+========================================================================================================================
+-----------------------------------------          Custom Horse Armor          -----------------------------------------
+========================================================================================================================
+
+Update
+
+    * ModCreativeModeTabs
+
+    * ModEquipmentAssetProvider
+        * Line 32-33
+
+    * ModModelProvider
+
+    * ModItems
+        * Line 104-106
+
+    * Texture
+    * en_us.json
+
+
+========================================================================================================================
+-----------------------------------------------          Blocks          -----------------------------------------------
+========================================================================================================================
+
+1. ModBlocks
+    * Line 20-22
+        * Copy an existing block registration.
+        * Rename the block.
+        * Set hardness/resistance.
+
+2. ModCreativeModeTabs
+    * Add block to Creative Tab.
+
+3. ModModelProvider
+    * Line 18
+        * Register block model.
+
+4. en_us.json
+    * Add block name.
+
+5. Textures
+    * Add block textures.
+    * Create custom block models if needed.
+
+6. Run DataGen
+
+========================================================================================================================
+-------------------------------------------          STAIRS & SLABS          -------------------------------------------
+========================================================================================================================
+
+Update
+
+    * ModBlocks
+        * Stairs (Line 55-57)
+        * Slabs (Line 60-61)
+
+    * ModCreativeModeTabs
+
+    * ModBlockLootTableProvider
+        * Stairs (Line 55-57)
+        * Slabs (Line 60-61)
+
+    * ModBlockTagsProvider
+        * Add mining tier.
+        * Add ValueLookup (Line 37)
+
+    * ModModelProvider
+        * Block Family (Line 30-32)
+
+    * ModRecipeProvider
+        * Stairs (Line 83-86)
+        * Slabs (Line 89)
+
+    * en_us.json
+
+========================================================================================================================
+-------------------------------------          BUTTONS & PRESSURE PLATES          -------------------------------------
+========================================================================================================================
+
+Update
+
+    * ModBlocks
+        * BlockSetType controls button sensitivity and pressure plate behavior.
+
+    * ModCreativeModeTabs
+
+    * ModBlockLootTableProvider
+
+    * ModBlockTagsProvider
+
+    * ModModelProvider
+
+    * ModRecipeProvider
+
+
+========================================================================================================================
+-----------------------------------------          DOORS & TRAPDOORS          -----------------------------------------
+========================================================================================================================
+
+Update
+
+    * ModBlocks
+        * BlockSetType determines door behavior.
+
+    * ModCreativeModeTabs
+
+    * ModBlockLootTableProvider
+        * Doors require special loot table handling.
+
+    * ModBlockTagsProvider
+
+    * ModModelProvider
+
+    * ModRecipeProvider
+
+    * Textures
+        * Door Item
+        * Door Top
+        * Door Bottom
+
+
+========================================================================================================================
+-------------------------------------------          CUSTOM BLOCKS          -------------------------------------------
+========================================================================================================================
+
+Magic Block
+
+1. Create custom Block class.
+
+    Useful Tips
+        * Type "override"
+        * Press CTRL + H on Block.
+
+2. Update
+
+    * ModBlocks
+    * ModCreativeModeTabs
+    * ModBlockLootTableProvider
+    * ModBlockTagsProvider
+    * ModModelProvider
+    * Texture
+    * en_us.json
+
+Lamp
+
+    * Create custom Block class.
+    * Add custom functionality.
+    * Register in:
+        - ModBlocks
+        - Creative Tab
+        - Loot Table
+        - Model Provider
+        - Textures
+        - en_us.json
+
+
+========================================================================================================================
+------------------------------------------          DATA COMPONENTS          ------------------------------------------
+========================================================================================================================
+
+ModDataComponents
+    * Register custom Data Components.
+
+Example
+
+    COORDINATES
+        * Stores List<BlockPos>.
+        * Used by the Chisel to remember selected blocks.
+
+TutorialMod
+    * Register ModDataComponents during mod initialization.
+
+Example Usage (ChiselItem)
+
+    * Store selected blocks.
+    * Remove selected blocks.
+    * Read stored blocks.
+    * Display custom tooltips.
+
+ModModelProvider
+    * Can swap item models based on Data Component values.
+
+
+========================================================================================================================
+------------------------------------------          CRAFTING RECIPES          ------------------------------------------
+========================================================================================================================
+
+ModRecipeProvider
+
+    * Line 35
+        * Smelting recipes.
+
+    * Line 40
+        * Smelting XP, cook time, output.
+
+    * Line 43
+        * Blasting recipes.
+
+    * Line 52
+        * Shapeless recipes.
+
+    * Line 63
+        * Block -> 9 Items.
+
+    * Line 72
+        * If multiple recipes have the same output,
+          give each recipe a unique ID.
+
+    Notes
+
+        * Use ShapedRecipeBuilder when item placement matters.
+        * Use ShapelessRecipeBuilder when order does not matter.
+
+
+========================================================================================================================
+--------------------------------------------          LOOT TABLES          --------------------------------------------
+========================================================================================================================
+
+ModBlockLootTableProvider
+
+    * Line 30
+        * Block drops itself.
+
+    * Line 34
+        * Block drops ore.
+
+    * Line 38
+        * Block drops random amount.
+
+ModBlockTagsProvider
+
+    * Line 19
+        * Block can be mined.
+
+    * Line 27
+    * Line 30
+        * Required mining tier.
+
+
+========================================================================================================================
+------------------------------------------          CUSTOM TOOLTIPS          ------------------------------------------
+========================================================================================================================
+
+Items
+    * ModItems
+        * Line 32-38
+
+Blocks
+    * ModBlocks
+        * Line 50
+
+Shift Tooltips
+
+    * ChiselItem
+        * Line 68-78
+
+    * ModItems
+        * Line 39-43
+        * Line 52-61
+
+To Add Tooltips
+
+    * Override appendHoverText().
+    * Add translation keys to en_us.json.
+
+
+========================================================================================================================
+--------------------------------------------          CUSTOM TAGS          --------------------------------------------
+========================================================================================================================
+
+Tags are reusable lists of Items or Blocks.
+
+Benefits
+
+    * Cleaner code.
+    * Easier maintenance.
+    * Better compatibility with other mods.
+
+Example
+
+    MagicBlock
+        * Line 65
+        * Uses a Tag instead of a hardcoded block list.

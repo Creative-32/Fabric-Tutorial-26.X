@@ -38,6 +38,69 @@ Custom Items
     5. Add In Game name and PNG for Texture
     6. DataGen
 
+
+Custom Food
+    1. Add New Java Class to custom Folder
+        * Experiments Mostly
+            * Double Click "Shift", Click the Top Right "Include Non-Protected Items" or Double Click Shift agian and this will Display Minecraft Files Such as Food(Nutrition, Satoration), Comsumables(Food/Drink, Sounds, Eat/Drink Duration, Effects)
+    2. Add New Item to
+        * ModFoods
+            * Food - Nutrition/Saturation
+            * Consumable - Eat/Drink, Duration of Eat/Drink, Effect, Probability
+        * ModModelProvider
+        * Creative Tab
+        * ModItems - Creates Item
+
+
+Custom Fuel
+    1. ModFuel
+        * Line 9 - What Item and How Long it Burns
+    2. Add to
+        * Creative Tab
+        * ModModelProvider
+        * ModItems - Line 28: Item Stack
+        * en_us.json and texture
+
+Custom Tools
+    * ModCreativeModeTabs
+    * ModBlockTagsProvider - Specify Tier Level of Pickaxe Along with Any Blocks that Specific Tool can Specially Mine (Line 61-70)
+    * ModItemsTagProvider - Allows Items to Be Enchanted as that Specific Tool Type (Line 27-32)
+    * ModModelProvider - (Line 63-68)
+    * ModRecipeProvider - (Line 127-197)
+    * ModItems - (Line 36-85)
+    * ModToolMaterials - ???
+    * ModTags - (Line 12-15 and 26-29)
+    * en_us.json & Item Textures
+
+Custom Bow
+    * ModItems - (Line 88-89)
+    * ModCreativeTabs
+    * ModItemsTagsProvider
+    * ModModelProvider - Requires two lines, One to Generate Normal Bow and One to Generate Bow Animation (Line 115-117)
+    * en_us.json
+    * Requires 4 textures: One for Each stage of the Bow Draw
+            * BowItem, ProjectileWeaponItem, and ItemModelGenerator(GenerateBow) Methods
+
+Custom Armor
+    * ModCreativeModeTabs
+    * ModEquipmentAssetProvider - ???
+    * ModItemsTagProvider - Allows Items to Be Enchanted as that Specific Item Type (Line 34-37)
+    * ModModelProvider - (Line 72-79)
+    * ModRecipeProvider - (Line 199-1235)
+    * ModItems - (Line 90-101)
+    * ModArmorMaterials - ???
+    * ModTags - (Line 12-15 and 26-29)
+    * en_us.json & Item Textures
+        * Each Armor Piece Should have an Item Texture
+        * 3 Entity Textures are need per Set, One For Each of the Humanoid, Babies, and Leggings Folders
+
+
+Custom Horse Armor
+    * ModCreativeTab
+    * ModEquipmentAssetProvider - Add Layer for Desired Animal (Line 32-33)
+    * ModModelProvider - Adds Item Model
+    * ModItems - Creates Item (Line 104-106)
+
 ------------------------------------------------------------------------------------------------------------------------
 
 Blocks
@@ -113,64 +176,6 @@ Custom Block
         * ModModelProvider
         * Name and Textures
 
-------------------------------------------------------------------------------------------------------------------------
-
-Tools
-    * ModCreativeModeTabs
-    * ModBlockTagsProvider - Specify Tier Level of Pickaxe Along with Any Blocks that Specific Tool can Specially Mine (Line 61-70)
-    * ModItemsTagProvider - Allows Items to Be Enchanted as that Specific Tool Type (Line 27-32)
-    * ModModelProvider - (Line 63-68)
-    * ModRecipeProvider - (Line 127-197)
-    * ModItems - (Line 36-85)
-    * ModToolMaterials - ???
-    * ModTags - (Line 12-15 and 26-29)
-    * en_us.json & Item Textures
-
-------------------------------------------------------------------------------------------------------------------------
-
-Armor
-    * ModCreativeModeTabs
-    * ModEquipmentAssetProvider - ???
-    * ModItemsTagProvider - Allows Items to Be Enchanted as that Specific Item Type (Line 34-37)
-    * ModModelProvider - (Line 72-79)
-    * ModRecipeProvider - (Line 199-1235)
-    * ModItems - (Line 90-101)
-    * ModArmorMaterials - ???
-    * ModTags - (Line 12-15 and 26-29)
-    * en_us.json & Item Textures
-        * Each Armor Piece Should have an Item Texture
-        * 3 Entity Textures are need per Set, One For Each of the Humanoid, Babies, and Leggings Folders
-
-Horse
-    * ModCreativeTab
-    * ModEquipmentAssetProvider - Add Layer for Desired Animal (Line 32-33)
-    * ModModelProvider - Adds Item Model
-    * ModItems - Creates Item (Line 104-106)
-
-------------------------------------------------------------------------------------------------------------------------
-
-Custom Food
-    1. Add New Java Class to custom Folder
-        * Experiments Mostly
-            * Double Click "Shift", Click the Top Right "Include Non-Protected Items" or Double Click Shift agian and this will Display Minecraft Files Such as Food(Nutrition, Satoration), Comsumables(Food/Drink, Sounds, Eat/Drink Duration, Effects)
-    2. Add New Item to
-        * ModFoods
-            * Food - Nutrition/Saturation
-            * Consumable - Eat/Drink, Duration of Eat/Drink, Effect, Probability
-        * ModModelProvider
-        * Creative Tab
-        * ModItems - Creates Item
-
-------------------------------------------------------------------------------------------------------------------------
-
-Custom Fuel
-    1. ModFuel
-        * Line 9 - What Item and How Long it Burns
-    2. Add to
-        * Creative Tab
-        * ModModelProvider
-        * ModItems - Line 28: Item Stack
-        * en_us.json and texture
 
 ------------------------------------------------------------------------------------------------------------------------
 

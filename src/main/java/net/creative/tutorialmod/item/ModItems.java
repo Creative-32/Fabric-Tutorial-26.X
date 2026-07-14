@@ -85,6 +85,13 @@ public class ModItems {
             properties -> new Item(properties.spear(ModToolMaterials.FLUORITE, 0.95F, 0.95F, 0.6F,
                     2.5F, 11.0F, 6.75F, 5.1F, 11.25F, 4.6F)));
 
+    public static final Item KAUPEN_BOW = registerItem("kaupen_bow",
+            properties -> new BowItem(properties.durability(500)));
+
+
+
+
+
 
     // --------------------------------------       Armors       --------------------------------------
     // Helmet
