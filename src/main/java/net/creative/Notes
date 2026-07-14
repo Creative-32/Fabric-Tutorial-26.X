@@ -102,6 +102,18 @@ Custom Horse Armor
     * ModModelProvider - Adds Item Model
     * ModItems - Creates Item (Line 104-106)
 
+
+Custom Models
+    1. Get Model and Texture from BlockBench
+        * Add the Texture to the regular Items Textures
+        * Add the Custom Item Model to Assets/tutorialmod/Models/Items File
+                *** Inside the Model, Change Line6 to Include "tutorialmod:item/" in the Beginning
+    2. ModModelProvider - Declare the Custom Model Instead of Generating One (Line 120)
+    3. Add to Creative tabs, ModItems, and en_us.json
+
+    * If Item Doesnt Fit into GUI; Blockbench -> Display -> GUI
+            * Re-Export Model
+
 ------------------------------------------------------------------------------------------------------------------------
 
 Blocks
@@ -249,6 +261,13 @@ Mix-In
                     - "Mth.lerp(effectScale, 1.0F, modifier)"
 
 ------------------------------------------------------------------------------------------------------------------------
+
+BlockBench
+    * File -> Export -> Export Block/Item Model -> Creates Json File
+    * Texture: Right-Click Texture (Bottom Left) -> Save As -> Save
+
+------------------------------------------------------------------------------------------------------------------------
+
 
 
 
