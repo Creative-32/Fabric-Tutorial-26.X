@@ -80,6 +80,7 @@ Custom Bow
     * en_us.json
     * Requires 4 textures: One for Each stage of the Bow Draw
             * BowItem, ProjectileWeaponItem, and ItemModelGenerator(GenerateBow) Methods
+    *** For FOV Zoom In - Look at Mix In
 
 Custom Armor
     * ModCreativeModeTabs
@@ -230,6 +231,24 @@ Custom Tags - Used as a List, So we can Call the List Instead of Adding Everythi
 
 ------------------------------------------------------------------------------------------------------------------------
 
+Mix-In
+    * Created Java Class "AbstractClientPlayerMixin"
+    * Added the "AbstractClientPlayerMixin" to tutorialmod.mixins.json in the "client" section
+
+    1. @Inject(method = "getFieldOfViewModifier", at = @At(value = "TAIL"), cancellable = true)
+            * @Inject(method = "Choose Desired Method to Inject Code into",
+              at = @At(value = "Where in Method to Inject (Tail = Right Before Return),
+              cancellable = True (Injection is Allow to Change/Stop Original Method Output, default is false)
+    2. private void getFieldOfViewModifierMixin(boolean firstPerson, float effectScale, CallbackInfoReturnable<Float> info) {
+               float modifier = 1f;
+            * Copy Method from "Middle Clicking AbstractClientPlayerMixin"
+                - Just Copy the Method (Line 95-114)
+                * Delete Useless If Statements ( Flying & Walking Speed)
+            * Edited Bow Method as Desired
+                * Add info.setReturnValue("Return Code at the End of Original Method") to the End of Custom Method
+                    - "Mth.lerp(effectScale, 1.0F, modifier)"
+
+------------------------------------------------------------------------------------------------------------------------
 
 
 
