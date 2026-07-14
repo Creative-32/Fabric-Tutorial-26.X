@@ -3,6 +3,7 @@ package net.creative.tutorialmod.block;
 import net.creative.tutorialmod.TutorialMod;
 import net.creative.tutorialmod.block.custom.FluoriteLampBlock;
 import net.creative.tutorialmod.block.custom.MagicBlock;
+import net.creative.tutorialmod.block.custom.PedestalBlock;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -108,6 +109,18 @@ public class ModBlocks {
                     .requiresCorrectToolForDrops().lightLevel(state -> state.getValue(FluoriteLampBlock.CLICKED) ? 15 : 0)));
                     // lightLevel(state -> 15) - Sets Light Level
                     // state.getValue(FluoriteLampBlock.CLICKED) ? 15 : 0) - Sets Light Level when Lamp is Clicked
+    // Pedestal Block
+                    public static final Block PEDESTAL_BLOCK = registerBlock("pedestal",
+                            properties -> new PedestalBlock(properties.strength(3f).requiresCorrectToolForDrops()));
+
+
+
+
+
+
+
+
+
 
 
 

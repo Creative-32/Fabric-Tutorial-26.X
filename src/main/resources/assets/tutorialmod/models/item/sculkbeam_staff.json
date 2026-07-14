@@ -4,7 +4,7 @@
 	"texture_size": [32, 32],
 	"textures": {
 		"0": "tutorialmod:item/sculkbeam_staff_3d",
-		"particle": "sculkbeam_staff_3d"
+		"particle": "tutorialmod:item/sculkbeam_staff_3d"
 	},
 	"elements": [
 		{

@@ -30,6 +30,7 @@ public class ModBlockTagsProvider extends FabricTagsProvider.BlockTagsProvider {
                 .add(ModBlocks.FLUORITE_WALL)
                 .add(ModBlocks.FLUORITE_DOOR)
                 .add(ModBlocks.FLUORITE_TRAPDOOR)
+                .add(ModBlocks.PEDESTAL_BLOCK);
 
 
 

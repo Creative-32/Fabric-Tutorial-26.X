@@ -102,18 +102,6 @@ Custom Horse Armor
     * ModModelProvider - Adds Item Model
     * ModItems - Creates Item (Line 104-106)
 
-
-Custom Models
-    1. Get Model and Texture from BlockBench
-        * Add the Texture to the regular Items Textures
-        * Add the Custom Item Model to Assets/tutorialmod/Models/Items File
-                *** Inside the Model, Change Line6 to Include "tutorialmod:item/" in the Beginning
-    2. ModModelProvider - Declare the Custom Model Instead of Generating One (Line 120)
-    3. Add to Creative tabs, ModItems, and en_us.json
-
-    * If Item Doesnt Fit into GUI; Blockbench -> Display -> GUI
-            * Re-Export Model
-
 ------------------------------------------------------------------------------------------------------------------------
 
 Blocks
@@ -188,6 +176,34 @@ Custom Block
         * ModBlockLootTable
         * ModModelProvider
         * Name and Textures
+
+------------------------------------------------------------------------------------------------------------------------
+
+Custom Item Models
+    1. Get Model and Texture from BlockBench
+        * Add the Texture to the regular Items Textures
+        * Add the Custom Item Model to Assets/tutorialmod/Models/Items File
+                *** Inside the Model, Change Line 6 & 7 to Include "tutorialmod:item/" in the Beginning
+    2. ModModelProvider - Declare the Custom Model Instead of Generating One (Line 120)
+    3. Add to Creative tabs, ModItems, and en_us.json
+
+    * If Item Doesnt Fit into GUI; Blockbench -> Display -> GUI
+            * Re-Export Model
+
+
+Custom Block Model
+    1. Get Model and Texture from BlockBench
+    2. Block Size is Smaller then 16x16x16
+        * Create a Custom Voxel Shape
+            1. Create Custom Block Java File (PedestalBlock)
+            2. Input Position Coordinates and Size
+                * For Specific Directional Facing Blocks -> HorizontalDirectionBlock
+                * Optional - Create Custom Collision Model -> Look at Lectern
+    3. Model
+        * Add the Texture to the regular Items Textures
+        * Add the Custom Item Model to Assets/tutorialmod/Models/Items File
+                *** Inside the Model, Change Line 6 & 7 to Include "tutorialmod:item/" in the Beginning
+    5. Add to ModBlocks, ModCreativeTabs, ModBlockLootTableProvider, ModBlockTagsProvider, en_us.json
 
 
 ------------------------------------------------------------------------------------------------------------------------

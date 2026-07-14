@@ -50,6 +50,8 @@ public class ModBlockLootTableProvider extends FabricBlockLootSubProvider {
         dropSelf(ModBlocks.FLUORITE_TRAPDOOR);
         // Lamp
         dropSelf(ModBlocks.FLUORITE_LAMP);
+        // Pedestal
+        dropSelf(ModBlocks.PEDESTAL_BLOCK);
 
 
 

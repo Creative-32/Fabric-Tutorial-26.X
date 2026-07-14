@@ -94,7 +94,7 @@ public class ModItems {
 
     // Sculk Beam Staff (Custom Item Model)
     public static final Item SCULKBEAM_STAFF = registerItem("sculkbeam_staff",
-            properties -> new BowItem(properties.stacksTo(1)));
+            properties -> new Item(properties.stacksTo(1)));
 
 //---------------------------------------------------------------------------------------------------------------------
 
