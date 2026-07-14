@@ -31,47 +31,47 @@ public class ChiselItem extends Item {
 
 //--------------------------------------------       Click On Air       ------------------------------------------------
     // Clears Coordinates When Right-Clicked in Air
-@Override
-public InteractionResult use(Level level, Player player, InteractionHand hand) {
+    @Override
+    public InteractionResult use(Level level, Player player, InteractionHand hand) {
 
-    ItemStack item = player.getItemInHand(hand);
+        ItemStack item = player.getItemInHand(hand);
 
-    if(!level.isClientSide()) {
+        if(!level.isClientSide()) {
 
-        List<BlockPos> positions = item.getOrDefault(
-                ModDataComponents.COORDINATES,
-                new ArrayList<>()
-        );
+            List<BlockPos> positions = item.getOrDefault(
+                    ModDataComponents.COORDINATES,
+                    new ArrayList<>()
+            );
 
-        // Ctrl + Right Click Air = Clear Selection
-        if(player.isCrouching()) {
+            // Ctrl + Right Click Air = Clear Selection
+            if(player.isCrouching()) {
 
-            item.remove(ModDataComponents.COORDINATES);
+                item.remove(ModDataComponents.COORDINATES);
+
+                return InteractionResult.SUCCESS;
+            }
+
+
+            // Right Click Air = Change Blocks
+            for(BlockPos pos : positions) {
+
+                Block block = level.getBlockState(pos).getBlock();
+
+                if(CHISEL_MAP.containsKey(block)) {
+                    level.setBlockAndUpdate(pos,
+                            CHISEL_MAP.get(block).defaultBlockState());
+                }
+            }
+
+            if(!positions.isEmpty()) {
+                item.hurtAndBreak(1, player, hand);
+            }
 
             return InteractionResult.SUCCESS;
         }
 
-
-        // Right Click Air = Change Blocks
-        for(BlockPos pos : positions) {
-
-            Block block = level.getBlockState(pos).getBlock();
-
-            if(CHISEL_MAP.containsKey(block)) {
-                level.setBlockAndUpdate(pos,
-                        CHISEL_MAP.get(block).defaultBlockState());
-            }
-        }
-
-        if(!positions.isEmpty()) {
-            item.hurtAndBreak(1, player, hand);
-        }
-
-        return InteractionResult.SUCCESS;
+        return InteractionResult.PASS;
     }
-
-    return InteractionResult.PASS;
-}
 
 
 //--------------------------------------------      Click On Block      ------------------------------------------------
@@ -101,7 +101,7 @@ public InteractionResult use(Level level, Player player, InteractionHand hand) {
                 positions.add(pos);
             }
 
-            // Update component correctly
+            // Updates Texture if List is Empty
             if (positions.isEmpty()) {
                 item.remove(ModDataComponents.COORDINATES);
             }
