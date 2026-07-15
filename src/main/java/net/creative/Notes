@@ -228,6 +228,16 @@ Data Components
 
 ------------------------------------------------------------------------------------------------------------------------
 
+Custom Stat
+    1. ModStats
+        * Add Stat Name (Line 14)
+        * Optional - Edit the Return Format?
+    2. Add Stat to Item (EX: Chisel)
+        * Award Stat for Changing Block (Line 81) of getOn Method
+    3. Add into en_us.json
+
+------------------------------------------------------------------------------------------------------------------------
+
 Crafting Recipe
 1. ModRecipeProvider
     * Line 35 - List all Blocks/Items able to be Smelted/Blasted

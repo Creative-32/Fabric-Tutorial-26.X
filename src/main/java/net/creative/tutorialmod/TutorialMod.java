@@ -4,6 +4,7 @@ import net.creative.tutorialmod.block.ModBlocks;
 import net.creative.tutorialmod.creativemodetabs.ModCreativeModeTabs;
 import net.creative.tutorialmod.data.ModDataComponents;
 import net.creative.tutorialmod.registries.ModFuels;
+import net.creative.tutorialmod.stat.ModStats;
 import net.fabricmc.api.ModInitializer;
 
 import net.creative.tutorialmod.item.ModItems;
@@ -22,6 +23,7 @@ public class TutorialMod implements ModInitializer {
 		ModBlocks.registerModBlocks();
 
 		ModDataComponents.registerDataComponents();
+		ModStats.registerStats();
 
 		ModFuels.registerFuels();
 	}

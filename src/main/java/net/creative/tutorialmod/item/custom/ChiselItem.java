@@ -2,6 +2,7 @@ package net.creative.tutorialmod.item.custom;
 
 import net.creative.tutorialmod.block.ModBlocks;
 import net.creative.tutorialmod.data.ModDataComponents;
+import net.creative.tutorialmod.stat.ModStats;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -76,6 +77,8 @@ public class ChiselItem extends Item {
 
             // Set Coordinates
             context.getItemInHand().set(ModDataComponents.COORDINATES, context.getClickedPos());
+            // Adds to Custom Stat
+            context.getPlayer().awardStat(ModStats.CHISEL_USED_STAT, 1);
         }
 
         // Interaction Animation on Success
