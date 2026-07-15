@@ -1,8 +1,10 @@
 package net.creative.tutorialmod;
 
-import net.creative.tutorialmod.datagen.*;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.creative.tutorialmod.datagen.*;
+import net.minecraft.core.RegistrySetBuilder;
+import net.minecraft.core.registries.Registries;
 
 public class TutorialModDataGenerator implements DataGeneratorEntrypoint {
 	@Override
@@ -15,5 +17,13 @@ public class TutorialModDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ModRecipeProvider::new);
 		pack.addProvider(ModItemTagsProvider::new);
 		pack.addProvider(ModEquipmentAssetProvider::new);
+		pack.addProvider(ModRegistryDataProvider::new);
+		pack.addProvider(ModPaintingTagsProvider::new);
+	}
+
+	// Sends Ref to Bootstrap Method w/ bootstrap contextand Adds it to the registerysetbuilder, so it can add craete the json files
+	@Override
+	public void buildRegistry(RegistrySetBuilder registryBuilder) {
+		registryBuilder.add(Registries.PAINTING_VARIANT, ModPaintings::bootstrap);
 	}
 }

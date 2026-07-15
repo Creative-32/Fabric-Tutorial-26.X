@@ -208,6 +208,15 @@ Custom Block Model
 
 ------------------------------------------------------------------------------------------------------------------------
 
+Custom Paintings
+   1. ModPaintings
+        * Create Paintings Resource Key (Line 18)
+        * Register its Size (Line 24)
+   2. ModPaintingTagProvider
+        * Add a Tag for the Painting (Line 22)
+
+------------------------------------------------------------------------------------------------------------------------
+
 Data Components
     * ModDataComponents - ???
         * ChiselItem
