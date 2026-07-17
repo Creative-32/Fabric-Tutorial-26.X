@@ -70,7 +70,9 @@ public class ModBlockTagsProvider extends FabricTagsProvider.BlockTagsProvider {
                 .addTag(BlockTags.NEEDS_DIAMOND_TOOL);
         // ---------------------------------------------------------
 
-
+        // Crops
+        tag(BlockTags.CROPS)
+                .add(ModBlocks.getRK(ModBlocks.STRAWBERRY_CROP));
 
 
 

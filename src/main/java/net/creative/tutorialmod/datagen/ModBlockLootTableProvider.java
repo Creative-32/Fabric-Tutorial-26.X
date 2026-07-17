@@ -3,7 +3,9 @@ package net.creative.tutorialmod.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootSubProvider;
 import net.creative.tutorialmod.block.ModBlocks;
+import net.creative.tutorialmod.block.custom.StrawberryCropBlock;
 import net.creative.tutorialmod.item.ModItems;
+import net.minecraft.advancements.predicates.StatePropertiesPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.Item;
@@ -14,6 +16,7 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 import java.util.concurrent.CompletableFuture;
@@ -52,6 +55,14 @@ public class ModBlockLootTableProvider extends FabricBlockLootSubProvider {
         dropSelf(ModBlocks.FLUORITE_LAMP);
         // Pedestal
         dropSelf(ModBlocks.PEDESTAL_BLOCK);
+
+        // Strawberry Crop
+        this.add(ModBlocks.STRAWBERRY_CROP, this.createCropDrops(ModBlocks.STRAWBERRY_CROP, ModItems.STRAWBERRY, ModItems.STRAWBERRY_SEEDS,
+                LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.STRAWBERRY_CROP)
+                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(StrawberryCropBlock.AGE, StrawberryCropBlock.MAX_AGE))));
+
+
+
 
 
 

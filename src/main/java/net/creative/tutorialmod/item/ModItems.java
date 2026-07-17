@@ -1,5 +1,6 @@
 package net.creative.tutorialmod.item;
 
+import net.creative.tutorialmod.block.ModBlocks;
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.creative.tutorialmod.TutorialMod;
 import net.creative.tutorialmod.food.ModFoods;
@@ -126,6 +127,23 @@ public class ModItems {
     public static final Item FLUORITE_HORSE_ARMOR = registerItem("fluorite_horse_armor",
             // Change .horseArmor to Any Other Animal for their Armor Type
             properties -> new Item(properties.horseArmor(ModArmorMaterials.FLUORITE_ARMOR_MATERIAL)));
+
+    // Strawberry
+    public static final Item STRAWBERRY_SEEDS = registerItem("strawberry_seeds",
+            properties -> new BlockItem(ModBlocks.STRAWBERRY_CROP, properties.useItemDescriptionPrefix()));
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

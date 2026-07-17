@@ -51,6 +51,24 @@ Custom Food
         * Creative Tab
         * ModItems - Creates Item
 
+Custom Crop
+    1. Add New Custom Block Java File
+        * Look at Strawberry or Default Crops
+    2. ModBlocks
+        * Add in Properties for Crop (Line 117-121)
+    3. ModBlockLootProvider
+        * Special Loot Table Format (Line 59-62)
+    4. ModBlockTagsProvider
+        * (Line 73-75)
+    5. ModModelProvider
+        * (Line 75-76)
+    6. CreativeModTabs
+        * (Line 82)
+    7. ModItems
+        * Add in Seeds (Line 131-133)
+    8. Textures & en_us.json
+        * Block - Crop Stages
+        * Item - Seeds Texture
 
 Custom Fuel
     1. ModFuel
@@ -354,6 +372,8 @@ Vanilla Code & Other Mods
 Notes
     * 20 ticks per Sec
     * CRTL + D: short cut to copy and pasting a whole line instantly
+    * "Ctrl+H": Pulls up Java Class Hierachy,
+        - So Ctrl+H on CropBlock shows Beetroots, Carrots, Ect
     * Middle Mouse Button or CRT+Left Click to go to file where function is used
         * Used to pull up Minecraft files usually
     * Hold "Alt" and Drag Down Which Allows "Copy & Paste" Across Multiple Lines

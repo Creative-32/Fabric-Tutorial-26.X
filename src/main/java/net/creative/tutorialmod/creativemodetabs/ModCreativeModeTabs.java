@@ -79,15 +79,21 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.FLUORITE_LAMP);
                         output.accept(ModBlocks.PEDESTAL_BLOCK);
 
+                        output.accept(ModItems.STRAWBERRY_SEEDS);
+
+
+
+
+
+
+
+
+
+
+
 
 
                     }).build());
-
-
-
-
-
-
 
     public static void registerModCreativeModeTabs() {
         TutorialMod.LOGGER.info("Registering Creative Mode Tabs for " + TutorialMod.MOD_ID);

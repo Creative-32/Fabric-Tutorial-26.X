@@ -4,6 +4,7 @@ import net.creative.tutorialmod.TutorialMod;
 import net.creative.tutorialmod.block.custom.FluoriteLampBlock;
 import net.creative.tutorialmod.block.custom.MagicBlock;
 import net.creative.tutorialmod.block.custom.PedestalBlock;
+import net.creative.tutorialmod.block.custom.StrawberryCropBlock;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -113,7 +114,11 @@ public class ModBlocks {
                     public static final Block PEDESTAL_BLOCK = registerBlock("pedestal",
                             properties -> new PedestalBlock(properties.strength(3f).requiresCorrectToolForDrops()));
 
-
+    // Strawberry
+    public static final Block STRAWBERRY_CROP = registerBlockWithoutBlockItem("strawberry_crop",
+            // NO Collision, Random Growth, Instant Break, Break Sound, Piston Push Breaks
+            properties -> new StrawberryCropBlock(properties.noCollision().randomTicks().instabreak().sound(SoundType.CROP)
+                    .pushReaction(PushReaction.DESTROY)));
 
 
 
@@ -149,6 +154,11 @@ public class ModBlocks {
                 });
     }
 
+    // For Seeds
+    private static Block registerBlockWithoutBlockItem(String name, Function<BlockBehaviour.Properties, Block> function) {
+        Block toRegister = function.apply(BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(TutorialMod.MOD_ID, name))));
+        return Registry.register(BuiltInRegistries.BLOCK, Identifier.fromNamespaceAndPath(TutorialMod.MOD_ID, name), toRegister);
+    }
 
     private static Block registerBlock(String name, Function<BlockBehaviour.Properties, Block> function) {
         Block toRegister = function.apply(BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(TutorialMod.MOD_ID, name))));
