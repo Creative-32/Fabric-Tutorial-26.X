@@ -1,5 +1,6 @@
 package net.creative.tutorialmod.datagen;
 
+import net.creative.tutorialmod.block.ModBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 import net.creative.tutorialmod.item.ModItems;
@@ -17,26 +18,26 @@ public class ModItemTagsProvider extends FabricTagsProvider.ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider registries) {
-        valueLookupBuilder(ModTags.Items.TRANSFORMABLE_ITEMS)
-                .add(ModItems.FLUORITE)
-                .add(Items.IRON_INGOT)
-                .add(Items.COAL)
-                .add(Items.BRICK);
+        tag(ModTags.Items.TRANSFORMABLE_ITEMS)
+                .add(ModItems.getRK(ModItems.FLUORITE))
+                .add(ModItems.getRK(Items.IRON_INGOT))
+                .add(ModItems.getRK(Items.COAL))
+                .add(ModItems.getRK(Items.BRICK));
 
         // Allows Items to Be Enchanted as that Specific Item
-        valueLookupBuilder(ItemTags.SWORDS).add(ModItems.FLUORITE_SWORD);
-        valueLookupBuilder(ItemTags.PICKAXES).add(ModItems.FLUORITE_PICKAXE);
-        valueLookupBuilder(ItemTags.SHOVELS).add(ModItems.FLUORITE_SHOVEL);
-        valueLookupBuilder(ItemTags.AXES).add(ModItems.FLUORITE_AXE);
-        valueLookupBuilder(ItemTags.HOES).add(ModItems.FLUORITE_HOE);
-        valueLookupBuilder(ItemTags.SPEARS).add(ModItems.FLUORITE_SPEAR);
+        tag(ItemTags.SWORDS).add(ModItems.getRK(ModItems.FLUORITE_SWORD));
+        tag(ItemTags.PICKAXES).add(ModItems.getRK(ModItems.FLUORITE_PICKAXE));
+        tag(ItemTags.SHOVELS).add(ModItems.getRK(ModItems.FLUORITE_SHOVEL));
+        tag(ItemTags.AXES).add(ModItems.getRK(ModItems.FLUORITE_AXE));
+        tag(ItemTags.HOES).add(ModItems.getRK(ModItems.FLUORITE_HOE));
+        tag(ItemTags.SPEARS).add(ModItems.getRK(ModItems.FLUORITE_SPEAR));
 
-        valueLookupBuilder(ItemTags.HEAD_ARMOR).add(ModItems.FLUORITE_HELMET);
-        valueLookupBuilder(ItemTags.CHEST_ARMOR).add(ModItems.FLUORITE_CHESTPLATE);
-        valueLookupBuilder(ItemTags.LEG_ARMOR).add(ModItems.FLUORITE_LEGGINGS);
-        valueLookupBuilder(ItemTags.FOOT_ARMOR).add(ModItems.FLUORITE_BOOTS);
+        tag(ItemTags.HEAD_ARMOR).add(ModItems.getRK(ModItems.FLUORITE_HELMET));
+        tag(ItemTags.CHEST_ARMOR).add(ModItems.getRK(ModItems.FLUORITE_CHESTPLATE));
+        tag(ItemTags.LEG_ARMOR).add(ModItems.getRK(ModItems.FLUORITE_LEGGINGS));
+        tag(ItemTags.FOOT_ARMOR).add(ModItems.getRK(ModItems.FLUORITE_BOOTS));
 
-        valueLookupBuilder(ItemTags.BOW_ENCHANTABLE).add(ModItems.KAUPEN_BOW);
+        tag(ItemTags.BOW_ENCHANTABLE).add(ModItems.getRK(ModItems.KAUPEN_BOW));
 
 
 

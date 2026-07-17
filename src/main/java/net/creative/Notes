@@ -303,6 +303,28 @@ BlockBench
 
 ------------------------------------------------------------------------------------------------------------------------
 
+Update
+    * Changed Gradle.Properties
+        * Line 10,15, and 19 to show 26.2`
+    * Changed fabric.mod.json
+        * Line 30 to show ~26.2
+    * gradle-wrapper
+        * Line 4 for 9.6.1
+
+    * Added Method to ModItems and MOdBlocks (Line 134-136/128-139 for getRK)
+    * Changed ModItems & ModBlocks
+        * valueLookupBuilder   -->   tag
+        * .add(ModBlocks.FLUORITE_BLOCK)   -->   .add(ModBlocks.getRK(ModBlocks.FLUORITE_BLOCK))
+
+------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
 
 
 
@@ -334,6 +356,8 @@ Notes
     * CRTL + D: short cut to copy and pasting a whole line instantly
     * Middle Mouse Button or CRT+Left Click to go to file where function is used
         * Used to pull up Minecraft files usually
+    * Hold "Alt" and Drag Down Which Allows "Copy & Paste" Across Multiple Lines
+    * "Ctrl+R" Lets you Search Up Words and Replace them
     * Click "Item" or "Block", then CRTL+H to See all Minecraft Items/Blocks and how they Work
     * Type "override" to see More Options for Item Interactions
     * Double Click "Shift", Click the Top Right "Include Non-Protected Items" and this Will Display Minecraft Files Such as Food(Nutrition, Satoration), Comsumables(Food/Drink, Sounds, Eat/Drink Duration, Effects),
