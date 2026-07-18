@@ -286,6 +286,22 @@ Loot Table
 
 ------------------------------------------------------------------------------------------------------------------------
 
+Custom KeyBinds
+    1. Add Package client/key/ModKeyBindings
+        * Creates and Stores Keybinds and Keybind groups
+    2. Added TutorialModClient
+        * Listens for Keybind Press
+    3. ModDataComponents
+        * Changed into Block List
+    4. ChiselItems
+        * the useOn and Blocklist Selection Sometimes interfere with each other
+    5. en_us.json
+        * Added New Names
+    6. fabric.mod.json
+        * Added Client Code: TutorialModClient
+
+------------------------------------------------------------------------------------------------------------------------
+
 Custom ToolTips
     * Items - ModItems Line 32-38
     * Blocks - ModBlocks Line 50 (Names are on Line 41, 56, 58)

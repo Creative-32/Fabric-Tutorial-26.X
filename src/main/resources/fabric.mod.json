@@ -18,6 +18,9 @@
 		"main": [
 			"net.creative.tutorialmod.TutorialMod"
 		],
+		"client": [
+			"net.creative.tutorialmod.TutorialModClient"
+		],
 		"fabric-datagen": [
 			"net.creative.tutorialmod.TutorialModDataGenerator"
 		]
