@@ -1,10 +1,7 @@
 package net.creative.tutorialmod.block;
 
 import net.creative.tutorialmod.TutorialMod;
-import net.creative.tutorialmod.block.custom.FluoriteLampBlock;
-import net.creative.tutorialmod.block.custom.MagicBlock;
-import net.creative.tutorialmod.block.custom.PedestalBlock;
-import net.creative.tutorialmod.block.custom.StrawberryCropBlock;
+import net.creative.tutorialmod.block.custom.*;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -120,7 +117,10 @@ public class ModBlocks {
             properties -> new StrawberryCropBlock(properties.noCollision().randomTicks().instabreak().sound(SoundType.CROP)
                     .pushReaction(PushReaction.DESTROY)));
 
-
+    // Honey Berry Bush
+    public static final Block HONEY_BERRY_BUSH = registerBlockWithoutBlockItem("honey_berry_bush",
+            properties -> new HoneyBerryBushBlock(properties.randomTicks().noCollision().sound(SoundType.SWEET_BERRY_BUSH)
+                    .pushReaction(PushReaction.DESTROY)));
 
 
 

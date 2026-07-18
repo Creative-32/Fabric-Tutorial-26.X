@@ -70,6 +70,27 @@ Custom Crop
         * Block - Crop Stages
         * Item - Seeds Texture
 
+Custom Berry Bush (Check the VANILLA - Sweet Berry Bush)
+    1. New Custom Block Java Class
+        * Create Block properties
+    2. ModBlocks
+        * Register Honey Berry Block (Line 120-123)
+    3. ModBlockLootTableProvider
+        * Call Line for Enchantments to Work on Berry Bush(Line 37)
+        * Loot Table (Line 71-86)
+    4. ModModelProvider
+        * (Line 79-81)
+    5. ModFood
+        * Made Berry Edible (Line 14)
+    6. ModItems
+        * (Line 135-138)
+    7. CreativeTab
+    8. en_us.json & Texture
+        * Multiple Textures for Different Block Growth Stages
+        * File for Berry Item
+
+
+
 Custom Compostable
     1. Added ModCompostables to registries
         * Define Item to Be Composited and Probability to adding to Total Composite (Line 8-9)

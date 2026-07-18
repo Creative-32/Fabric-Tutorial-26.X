@@ -11,6 +11,7 @@ public class ModFoods {
 
     // Nutrition and Saturation
     public static final FoodProperties STRAWBERRY = new FoodProperties.Builder().nutrition(3).saturationModifier(0.25f).build();
+    public static final FoodProperties HONEY_BERRIES = new FoodProperties.Builder().nutrition(2).saturationModifier(0.15f).build();
 
     // Eat/Drink, Duration of Eat/Drink, Effect, Probability
     //      * Consume Always Method???

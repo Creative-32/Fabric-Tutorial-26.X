@@ -1,5 +1,6 @@
 package net.creative.tutorialmod.datagen;
 
+import net.creative.tutorialmod.block.custom.HoneyBerryBushBlock;
 import net.creative.tutorialmod.block.custom.StrawberryCropBlock;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
@@ -75,7 +76,9 @@ public class ModModelProvider extends FabricModelProvider {
         // Strawberry Crop
         blockModelGenerators.createCropBlock(ModBlocks.STRAWBERRY_CROP, StrawberryCropBlock.AGE, 0, 1, 2, 3, 4, 5);
 
-
+        // Berry Bush
+        blockModelGenerators.createCrossBlock(ModBlocks.HONEY_BERRY_BUSH, BlockModelGenerators.PlantType.NOT_TINTED,
+                HoneyBerryBushBlock.AGE, 0, 1, 2, 3);
 
 
 
