@@ -9,38 +9,34 @@ import net.minecraft.world.item.ItemStack;
 
 public class TutorialModClient implements ClientModInitializer {
 
-
+    // Default Chisel Mde
     public static boolean chiselMode = false;
 
 
     @Override
     public void onInitializeClient() {
 
-
         ModKeyBindings.registerKeyBindings();
 
+        ClientTickEvents.END_CLIENT_TICK.register(client -> { // Continuously listening for Keybind Press
 
-        ClientTickEvents.END_CLIENT_TICK.register(client -> {
+
+
             // Toggle Selection Mode (C)
-            while(ModKeyBindings.chiselKey.consumeClick()) {
-                chiselMode = !chiselMode;
-                if(client.player != null) {
+            while(ModKeyBindings.chiselKey.consumeClick()) { //Checks if Custom "C" Keybind was Pressed
+                chiselMode = !chiselMode; //Changes Chisel Mod
+                if(client.player != null) { // System Message on KeyPress
                     client.player.sendSystemMessage(
-                            Component.literal(
-                                    "Chisel Mode: " + chiselMode
-                            )
+                            Component.literal("Chisel Mode: " + chiselMode)
                     );
                 }
             }
 
-
-
             // Apply Selected Blocks (V)
-            while(ModKeyBindings.applyChiselKey.consumeClick()) {
-                if(client.player != null) {
-                    ItemStack stack =
-                            client.player.getMainHandItem();
-                    if(stack.getItem() instanceof ChiselItem) {
+            while(ModKeyBindings.applyChiselKey.consumeClick()) { //Checks if Custom "V" Keybind was Pressed
+                if(client.player != null) { // Makes sure Player Exist
+                    ItemStack stack = client.player.getMainHandItem(); // Gets what Item the Player is Holding
+                    if(stack.getItem() instanceof ChiselItem) { // If Player is Holding "Chisel" on "V" Press do Below
                         ChiselItem.chiselSelectedBlocks(
                                 client.level,
                                 client.player,

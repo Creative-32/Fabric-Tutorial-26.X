@@ -14,7 +14,7 @@ import java.util.function.UnaryOperator;
 
 public class ModDataComponents {
 
-
+    // Changed to list
     public static final DataComponentType<List<BlockPos>> COORDINATES =
             register("coordinates",
                     builder -> builder
@@ -31,33 +31,19 @@ public class ModDataComponents {
 
 
 
-
-
-
-
-
-    private static <T> DataComponentType<T> register(
-            String name,
-            UnaryOperator<DataComponentType.Builder<T>> builderOperator
-    ) {
+    // Helper Method, T is a Placeholder to the data time
+    //       (DataComponentType<List<BlockPos>>), ect
+    private static <T> DataComponentType<T> register(String name, UnaryOperator<DataComponentType.Builder<T>> builderOperator) {
 
         return Registry.register(
-                BuiltInRegistries.DATA_COMPONENT_TYPE,
-                Identifier.fromNamespaceAndPath(
-                        TutorialMod.MOD_ID,
-                        name
-                ),
-                builderOperator.apply(
-                        DataComponentType.builder()
-                ).build()
+                BuiltInRegistries.DATA_COMPONENT_TYPE, Identifier.fromNamespaceAndPath(TutorialMod.MOD_ID,name),
+                builderOperator.apply(DataComponentType.builder()).build()
         );
     }
 
     public static void registerDataComponents() {
-
         TutorialMod.LOGGER.info(
                 "Registering Data Components for " + TutorialMod.MOD_ID
         );
-
     }
 }
