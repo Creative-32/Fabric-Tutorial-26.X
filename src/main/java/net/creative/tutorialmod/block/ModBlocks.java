@@ -122,7 +122,10 @@ public class ModBlocks {
             properties -> new HoneyBerryBushBlock(properties.randomTicks().noCollision().sound(SoundType.SWEET_BERRY_BUSH)
                     .pushReaction(PushReaction.DESTROY)));
 
-
+    // Rice Crop
+    public static final Block RICE_CROP = registerBlockWithoutBlockItem("rice_crop",
+            properties -> new RiceCropBlock(properties.noCollision().randomTicks().instabreak().sound(SoundType.CROP)
+                    .pushReaction(PushReaction.DESTROY)));
 
 
 
