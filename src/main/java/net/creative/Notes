@@ -70,6 +70,12 @@ Custom Crop
         * Block - Crop Stages
         * Item - Seeds Texture
 
+Custom Compostable
+    1. Added ModCompostables to registries
+        * Define Item to Be Composited and Probability to adding to Total Composite (Line 8-9)
+            - Look at ComposterBlock for Vanilla Info
+    2. Added Method to TutorialMod
+
 Custom Fuel
     1. ModFuel
         * Line 9 - What Item and How Long it Burns
