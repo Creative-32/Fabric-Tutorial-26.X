@@ -46,6 +46,10 @@
   "block.tutorialmod.fluorite_lamp": "Fluorite Lamp",
   "block.tutorialmod.pedestal": "Pedestal",
 
+  "block.tutorialmod.strawberry_crop": "Strawberry Crop",
+  "item.tutorialmod.honey_berries": "Honey Berries",
+  "item.tutorialmod.rice_shoot": "Rice Shoot",
+
   "painting.tutorialmod.world.title": "World",
   "painting.tutorialmod.world.author": "NanoAttack",
   "painting.tutorialmod.shrimp.title": "Shrimp",
@@ -55,10 +59,7 @@
 
   "stat.tutorialmod.chisel_used": "Blocks Chiseled",
 
-  "block.tutorialmod.strawberry_crop": "Strawberry Crop",
-  "item.tutorialmod.honey_berries": "Honey Berries",
-  "item.tutorialmod.rice_shoot": "Rice Shoot",
-
+  "sounds.tutorialmod.chisel_use": "Using Chisel",
 
   "creativemodetab.tutorialmod.fluorite_items": "Fluorite Tutorial Items",
   "creativemodetab.tutorialmod.fluorite_blocks": "Fluorite Tutorial Blocks",

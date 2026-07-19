@@ -275,6 +275,18 @@ Custom Paintings
 
 ------------------------------------------------------------------------------------------------------------------------
 
+Custom Sounds
+    1. ModSounds
+    2. ModSoundProvider
+    3. Added to Tutorial Mod and TutorialModDataGen
+        * Line 30 & 22 Respectively
+    4. Added Sound to ChiselItem
+        * (Line 81-82)
+    5. ModSoundProvider
+    6. Sound file and en_us.json
+
+------------------------------------------------------------------------------------------------------------------------
+
 Data Components
     * ModDataComponents - ???
         * ChiselItem

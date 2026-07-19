@@ -19,6 +19,7 @@ public class TutorialModDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ModEquipmentAssetProvider::new);
 		pack.addProvider(ModRegistryDataProvider::new);
 		pack.addProvider(ModPaintingTagsProvider::new);
+		pack.addProvider(ModSoundsProvider::new);
 	}
 
 	// Sends Ref to Bootstrap Method w/ bootstrap contextand Adds it to the registerysetbuilder, so it can add craete the json files

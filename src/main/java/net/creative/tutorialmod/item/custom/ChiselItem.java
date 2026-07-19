@@ -2,10 +2,12 @@ package net.creative.tutorialmod.item.custom;
 
 import net.creative.tutorialmod.block.ModBlocks;
 import net.creative.tutorialmod.data.ModDataComponents;
+import net.creative.tutorialmod.sound.ModSounds;
 import net.creative.tutorialmod.stat.ModStats;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -74,6 +76,10 @@ public class ChiselItem extends Item {
 
             level.setBlockAndUpdate(context.getClickedPos(), CHISEL_MAP.get(clickedBlock).defaultBlockState());
             context.getItemInHand().hurtAndBreak(1, context.getPlayer(), context.getHand());
+
+            // Sounds
+            level.playSound(null, context.getClickedPos(), ModSounds.CHISEL_USE, SoundSource.BLOCKS, 2.0F,
+                    0.8F + level.getRandom().nextFloat() * 0.4F);    // sound level = .8 plus random 0->.4
 
             // Set Coordinates
             context.getItemInHand().set(ModDataComponents.COORDINATES, context.getClickedPos());

@@ -5,6 +5,7 @@ import net.creative.tutorialmod.creativemodetabs.ModCreativeModeTabs;
 import net.creative.tutorialmod.data.ModDataComponents;
 import net.creative.tutorialmod.registries.ModCompostables;
 import net.creative.tutorialmod.registries.ModFuels;
+import net.creative.tutorialmod.sound.ModSounds;
 import net.creative.tutorialmod.stat.ModStats;
 import net.fabricmc.api.ModInitializer;
 
@@ -25,6 +26,8 @@ public class TutorialMod implements ModInitializer {
 
 		ModDataComponents.registerDataComponents();
 		ModStats.registerStats();
+
+		ModSounds.registerSounds();
 
 		ModFuels.registerFuels();
 		ModCompostables.registerCompostables();
