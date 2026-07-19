@@ -1,9 +1,12 @@
 {
 
   "key.tutorialmod.chisel": "Toggle Chisel Mode",
-  "key.category.tutorialmod": "Tutorial Mod",
-  "key.tutorialmod.apply_chisel": "Use Chisel",
+  "key.tutorialmod.cycle_chisel": "Cycle Chisel Preview",
+  "key.tutorialmod.apply_chisel": "Confirm Chisel",
+  "key.tutorialmod.cancel_chisel": "Cancel Chisel",
+
   "key.category.tutorialmod.chisel": "Chisel",
+
 
   "item.tutorialmod.fluorite": "Fluorite",
   "item.tutorialmod.raw_fluorite": "Raw Fluorite",

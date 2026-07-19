@@ -1,11 +1,15 @@
 package net.creative.tutorialmod.item.custom;
 
-import net.creative.tutorialmod.block.ModBlocks;
+import net.creative.tutorialmod.data.ChiselPlayerData;
+import net.creative.tutorialmod.data.ChiselPreviewData;
 import net.creative.tutorialmod.data.ModDataComponents;
 import net.creative.tutorialmod.stat.ModStats;
+import net.creative.tutorialmod.network.SyncChiselSelectionPayload;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -17,223 +21,271 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-
+import net.minecraft.world.level.block.state.BlockState;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 
-import java.util.ArrayList;
-import java.util.List;
 
-import net.creative.tutorialmod.TutorialModClient;
 
-// Click Item and the CRTL+H to See all Items and how they Work
 public class ChiselItem extends Item {
 
-    // Type "override" to See More Options
-
-    // Block A Turns Into Block B
-    private static final Map<Block, Block> CHISEL_MAP =
-            Map.of(
-                    // Block A, Block B
-                    Blocks.GRASS_BLOCK, Blocks.DIRT,
-                    Blocks.DIRT, Blocks.GRASS_BLOCK,
-
-                    Blocks.STONE, Blocks.COBBLESTONE,
-                    Blocks.COBBLESTONE, Blocks.STONE,
-
-                    ModBlocks.FLUORITE_BLOCK, ModBlocks.RAW_FLUORITE_BLOCK,
-                    ModBlocks.RAW_FLUORITE_BLOCK, ModBlocks.FLUORITE_BLOCK,
-
-                    ModBlocks.FLUORITE_NETHER_ORE, Blocks.NETHER_QUARTZ_ORE,
-                    Blocks.NETHER_QUARTZ_ORE, ModBlocks.FLUORITE_NETHER_ORE,
-
-                    ModBlocks.FLUORITE_END_ORE, Blocks.END_STONE,
-                    Blocks.END_STONE, ModBlocks.FLUORITE_END_ORE
-
-            );
 
     public ChiselItem(Properties properties) {
         super(properties);
     }
 
-
-
-
-    // Clears Coordinates When Right-Clicked in Air
+//-----------------------------------------          Right Click Air          -----------------------------------------
     @Override
-    public InteractionResult use(Level level, Player player, InteractionHand hand) {
-        if(player.isCrouching()) {
+    public InteractionResult use(Level level, Player player, InteractionHand hand){
+
+        if(player.isCrouching()){
             player.getMainHandItem().remove(ModDataComponents.COORDINATES);
+            ChiselPreviewData.clear();
+
+            player.sendSystemMessage(
+                    Component.literal(
+                            "Selection cleared"
+                    )
+            );
+
             return InteractionResult.SUCCESS;
         }
-        return super.use(level, player, hand);
+
+        return super.use(level,player,hand);
     }
 
-
-
-
-    // Changes Blocks Based on Block Relationship in Map
+//----------------------------------------          Right Click Block          ----------------------------------------
     @Override
-    public InteractionResult useOn(UseOnContext context) {
+    public InteractionResult useOn(UseOnContext context){
 
         Level level = context.getLevel();
 
-        if(level.isClientSide()) {
+        if(level.isClientSide())
             return InteractionResult.SUCCESS;
-        }
+
+        Player player = context.getPlayer();
 
         ItemStack stack = context.getItemInHand();
-        BlockPos clickedPos = context.getClickedPos();
 
-        // Selection Mode
-        if(TutorialModClient.chiselMode) {
+        BlockPos pos = context.getClickedPos();
 
-            List<BlockPos> positions = stack.get(ModDataComponents.COORDINATES);
 
-            if(positions == null) {
-                positions = new ArrayList<>();
-            }
-            else {
-                positions = new ArrayList<>(positions);
-            }
+//------------------------------------------          Selection Mode          ------------------------------------------
+        if(player instanceof ServerPlayer serverPlayer && ChiselPlayerData.isChiselMode(serverPlayer)){
 
-            // Removing Block from List on Second Click
-            if(positions.contains(clickedPos)) {
+            List<BlockPos> list = stack.get(ModDataComponents.COORDINATES);
 
-                positions.remove(clickedPos);
 
-                context.getPlayer().sendSystemMessage(
+            if(list == null)
+                list = new ArrayList<>();
+
+            else
+                list = new ArrayList<>(list);
+
+
+            if(list.contains(pos)){
+                list.remove(pos);
+                player.sendSystemMessage(
                         Component.literal(
-                                "2: Removed " + clickedPos
+                                "Removed " + pos
                         )
                 );
             }
-            else {
-
-                positions.add(clickedPos);
-                // Adding Block from List on First Click
-                context.getPlayer().sendSystemMessage(
+            else{
+                list.add(pos);
+                player.sendSystemMessage(
                         Component.literal(
-                                "1: Added " + clickedPos
+                                "Added " + pos
                         )
                 );
             }
 
-            stack.set(ModDataComponents.COORDINATES, positions);
+            stack.set(ModDataComponents.COORDINATES,list);
+
+            ServerPlayNetworking.send(
+                    serverPlayer,
+                    new SyncChiselSelectionPayload(list)
+            );
 
             return InteractionResult.SUCCESS;
         }
 
 
-        // Normal Chisel Mode
-        Block clickedBlock = level.getBlockState(clickedPos).getBlock();
+//-------------------------------------------          Normal Mode          -------------------------------------------
 
+        Block block = level.getBlockState(pos).getBlock();
 
-        if(CHISEL_MAP.containsKey(clickedBlock)) {
+        if(CHISEL_MAP.containsKey(block)){
+            level.setBlockAndUpdate(
+                    pos,
+                    CHISEL_MAP.get(block)
+                            .defaultBlockState()
+            );
 
-            level.setBlockAndUpdate( clickedPos, CHISEL_MAP.get(clickedBlock).defaultBlockState());
+            stack.hurtAndBreak(1, player, context.getHand());
 
-            stack.hurtAndBreak(1, context.getPlayer(), context.getHand());
-
-            context.getPlayer().awardStat(ModStats.CHISEL_USED_STAT,1);}
+            player.awardStat(
+                    ModStats.CHISEL_USED_STAT,
+                    1
+            );
+        }
 
         return InteractionResult.SUCCESS;
     }
 
 
-    public static void chiselSelectedBlocks(Level level, Player player, ItemStack stack) {
+//-------------------------------------------          Preview Mode          -------------------------------------------
+
+    public static void cyclePreview(Level level, Player player, ItemStack stack){
 
         List<BlockPos> positions = stack.get(ModDataComponents.COORDINATES);
 
-        if(positions == null || positions.isEmpty()) {
+
+        if(positions == null || positions.isEmpty()){
             player.sendSystemMessage(
-                    Component.literal("No blocks selected")
+                    Component.literal(
+                            "No blocks selected"
+                    )
             );
             return;
         }
 
-//        player.sendSystemMessage(
-//                Component.literal(
-//                        "Blocks: 3" + positions.size()
-//                )
-//        );
 
+        for(BlockPos pos : positions){ BlockState old = level.getBlockState(pos);
 
-        for(BlockPos pos : positions) {
+            // Save original once
+            ChiselPreviewData.save(pos, old);
 
-            Block block = level.getBlockState(pos).getBlock();
+            Block current = old.getBlock();
 
-//           player.sendSystemMessage(Component.literal("Checking 4" + pos));
-
-            if(CHISEL_MAP.containsKey(block)) {
-                level.setBlockAndUpdate(
-                        pos,
-                        CHISEL_MAP.get(block)
-                                .defaultBlockState()
-                );
-
-                player.sendSystemMessage(
-                        Component.literal(
-                                "5: Changed " + pos
-                        )
-                );
+            if(CHISEL_MAP.containsKey(current)){
+                Block next = CHISEL_MAP.get(current);
+                level.setBlockAndUpdate(pos, next.defaultBlockState());
             }
         }
-
-        stack.remove(ModDataComponents.COORDINATES);
     }
 
 
+//----------------------------------------          Confirmation Mode          ----------------------------------------
+    public static void confirmPreview(Level level, Player player, ItemStack stack){
+
+        List<BlockPos> positions = stack.get(ModDataComponents.COORDINATES);
+
+
+        if(positions == null)
+            return;
+
+        stack.hurtAndBreak(1, player, InteractionHand.MAIN_HAND);
+
+        ChiselPreviewData.clear();
+
+        stack.remove(ModDataComponents.COORDINATES);
+
+        player.sendSystemMessage(
+                Component.literal(
+                        "Chisel confirmed"
+                )
+        );
 
 
 
+    }
 
 
+//----------------------------------------          Cancellation Mode          ----------------------------------------
+    public static void cancelPreview(Level level,Player player,ItemStack stack){
+
+        List<BlockPos> positions = stack.get(ModDataComponents.COORDINATES);
+
+
+        if(positions != null){
+            for(BlockPos pos : positions){
+
+                BlockState original = ChiselPreviewData.get(pos);
+
+                if(original != null){
+                    level.setBlockAndUpdate(pos, original);
+                }
+            }
+        }
+
+        ChiselPreviewData.clear();
+
+        stack.remove(ModDataComponents.COORDINATES);
+
+        player.sendSystemMessage(
+                Component.literal(
+                        "Preview cancelled"
+                )
+        );
+    }
+
+
+//--------------------------------------------          Block Map          --------------------------------------------
+    private static final Map<Block,Block> CHISEL_MAP = new HashMap<>();
+
+    static{
+
+        CHISEL_MAP.put(
+                Blocks.GRASS_BLOCK,
+                Blocks.DIRT
+        );
+
+
+        CHISEL_MAP.put(
+                Blocks.DIRT,
+                Blocks.DIRT_PATH
+        );
+
+
+        CHISEL_MAP.put(
+                Blocks.DIRT_PATH,
+                Blocks.GRASS_BLOCK
+        );
+
+
+        CHISEL_MAP.put(
+                Blocks.STONE,
+                Blocks.COBBLESTONE
+        );
+
+
+        CHISEL_MAP.put(
+                Blocks.COBBLESTONE,
+                Blocks.STONE
+        );
+    }
 
 
 //---------------------------------------------          Tooltip          ---------------------------------------------
-
     @Override
-    public void appendHoverText(ItemStack itemStack, TooltipContext context, TooltipDisplay display,
-                                Consumer<Component> builder, TooltipFlag tooltipFlag) {
-        if(Minecraft.getInstance().hasShiftDown()) {
-            builder.accept(Component.translatable("tooltip.tutorialmod.chisel.shift_down"));
-        } else {
-            builder.accept(Component.translatable("tooltip.tutorialmod.chisel"));
-        }
+    public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display,
+                                Consumer<Component> builder, TooltipFlag flag){
 
-        // Old Coordinate Display
-        //if(itemStack.has(ModDataComponents.COORDINATES)) {
-        //    builder.accept(Component.literal("Last Block chiseled at X: " + itemStack.get(ModDataComponents.COORDINATES.)));
-        //}
 
-        // Tooltip
-        // New Coordinate Display
-        if(itemStack.has(ModDataComponents.COORDINATES)) {
+        if(stack.has(ModDataComponents.COORDINATES)){
 
-            List<BlockPos> positions =
-                    itemStack.get(ModDataComponents.COORDINATES);
-
+            List<BlockPos> list = stack.get(ModDataComponents.COORDINATES);
 
             builder.accept(
                     Component.literal(
-                            "Selected Blocks: " + positions.size()
+                            "Selected Blocks: "
+                                    + list.size()
                     )
             );
-
-
-            for(BlockPos pos : positions) {
-
-                builder.accept(
-                        Component.literal(
-                                 " X: " + pos.getX()
-                                    + " Y: " + pos.getY()
-                                    + " Z: " + pos.getZ()
-                        )
-                );
-            }
         }
 
-        super.appendHoverText(itemStack, context, display, builder, tooltipFlag);
-    }
+        super.appendHoverText(stack, context, display, builder, flag);}
+
+
+
+
+
+
+
+
+
 }

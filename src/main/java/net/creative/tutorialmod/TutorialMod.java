@@ -3,6 +3,7 @@ package net.creative.tutorialmod;
 import net.creative.tutorialmod.block.ModBlocks;
 import net.creative.tutorialmod.creativemodetabs.ModCreativeModeTabs;
 import net.creative.tutorialmod.data.ModDataComponents;
+import net.creative.tutorialmod.network.ModPackets;
 import net.creative.tutorialmod.registries.ModCompostables;
 import net.creative.tutorialmod.registries.ModFuels;
 import net.creative.tutorialmod.stat.ModStats;
@@ -29,6 +30,7 @@ public class TutorialMod implements ModInitializer {
 		ModFuels.registerFuels();
 		ModCompostables.registerCompostables();
 
+		ModPackets.register();
 
 	}
 }
