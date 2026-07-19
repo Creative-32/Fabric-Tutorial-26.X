@@ -25,25 +25,28 @@ public class TutorialModClient implements ClientModInitializer {
         ClientTickEvents.END_CLIENT_TICK.register(client -> { // Continuously listening for Keybind Press
 
 
-            // Toggle Selection Mode (C)
-            while(ModKeyBindings.chiselKey.consumeClick()) { //Checks if Custom "C" Keybind was Pressed
-                chiselMode = !chiselMode; //Changes Chisel Mod
-                if(client.player != null) { // System Message on KeyPress
-                    client.player.sendSystemMessage(
-                            Component.literal("Chisel Mode: " + chiselMode)
-                    );
+            // Toggle Chisel Selection Mode (C)
+            while(ModKeyBindings.chiselKey.consumeClick()) {                           // Checks if Custom "C" Keybind was Pressed
+                if(client.player != null) {                                        // Makes sure Player Exist
+                    ItemStack stack1 = client.player.getMainHandItem();                    // Gets what Item the Player is Holding
+                    if(stack1.getItem() instanceof ChiselItem) {
+                        chiselMode = !chiselMode;                                          //Changes Chisel Mode
+                        client.player.sendSystemMessage(
+                                Component.literal("Chisel Mode: " + chiselMode)
+                        );
+                    }
                 }
             }
 
-            // Apply Selected Blocks (V)
-            while(ModKeyBindings.applyChiselKey.consumeClick()) { //Checks if Custom "V" Keybind was Pressed
-                if(client.player != null) { // Makes sure Player Exist
-                    ItemStack stack = client.player.getMainHandItem(); // Gets what Item the Player is Holding
-                    if(stack.getItem() instanceof ChiselItem) { // If Player is Holding "Chisel" on "V" Press do Below
-                        ChiselItem.chiselSelectedBlocks(
+            // Apply Chisel to Selected Blocks (V)
+            while(ModKeyBindings.applyChiselKey.consumeClick()) {                  // Checks if Custom "V" Keybind was Pressed
+                if(client.player != null) {                                        // Makes sure Player Exist
+                    ItemStack stack2 = client.player.getMainHandItem();            // Gets what Item the Player is Holding
+                    if(stack2.getItem() instanceof ChiselItem) {                   // If Player is Holding "Chisel" on "V" Press do Below
+                        ChiselItem.chiselSelectedBlocks(                           // Call ChiselSelectedBlocks
                                 client.level,
                                 client.player,
-                                stack
+                                stack2
                         );
                     }
                 }

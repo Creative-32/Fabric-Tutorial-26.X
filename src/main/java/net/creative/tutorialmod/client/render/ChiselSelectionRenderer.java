@@ -44,13 +44,17 @@ public class ChiselSelectionRenderer {
              * FF = green
              * FF = blue
              *
+             * 0 1 2 3 4 5 6 7 8 9 A B C D E F
+             *    From 00 (0%) -> FF (100%)
+             *
              * 2.0F = line thickness
              */
             Gizmos.cuboid(
                     new AABB(pos).inflate(0.003F),
-                    GizmoStyle.stroke(
+                    GizmoStyle.strokeAndFill(
                             0xcc55FFFF,
-                            2.0F
+                            2.0F,
+                            0x00FFFFFF
                     )
             );
         }
