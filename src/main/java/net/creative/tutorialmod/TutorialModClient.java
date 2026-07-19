@@ -1,25 +1,28 @@
 package net.creative.tutorialmod;
 
 import net.creative.tutorialmod.client.key.ModKeyBindings;
+import net.creative.tutorialmod.client.render.ChiselSelectionRenderer;
 import net.creative.tutorialmod.item.custom.ChiselItem;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 
+import net.fabricmc.fabric.api.client.rendering.v1.level.LevelRenderEvents;
+
 public class TutorialModClient implements ClientModInitializer {
 
     // Default Chisel Mde
     public static boolean chiselMode = false;
-
 
     @Override
     public void onInitializeClient() {
 
         ModKeyBindings.registerKeyBindings();
 
-        ClientTickEvents.END_CLIENT_TICK.register(client -> { // Continuously listening for Keybind Press
+        LevelRenderEvents.BEFORE_GIZMOS.register(ChiselSelectionRenderer::render);
 
+        ClientTickEvents.END_CLIENT_TICK.register(client -> { // Continuously listening for Keybind Press
 
 
             // Toggle Selection Mode (C)
@@ -45,31 +48,6 @@ public class TutorialModClient implements ClientModInitializer {
                     }
                 }
             }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         });
     }
 }
