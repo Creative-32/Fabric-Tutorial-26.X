@@ -91,10 +91,18 @@ Custom Berry Bush (Check the VANILLA - Sweet Berry Bush)
 
 
 Custom Water Crops (Rice Crop)
-    1.
-    2.
-    3.
-    4.
+    1. Custom Block Java Class
+        *
+    2. ModItems
+        * (Line 140-142)
+    3. ModBlockLootTableProvider
+        * (Line 89-92)
+    4. ModModelProvider
+        * (Line 85)
+    5. ModCreativeTabs
+        * (Line 86)
+    6. Textures and en_us.json
+        * Multiple Textures for Block Growth States and Item Texture
 
 Custom Compostable
     1. Added ModCompostables to registries
