@@ -5,24 +5,14 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.Identifier;
 
-
-public record CycleChiselPayload()
-        implements CustomPacketPayload {
-
+public record CycleChiselPayload() implements CustomPacketPayload {
 
     public static final Type<CycleChiselPayload> TYPE =
-            new Type<>(
-                    Identifier.fromNamespaceAndPath(
-                            "tutorialmod",
-                            "cycle_chisel"
-                    )
-            );
+            new Type<>(Identifier.fromNamespaceAndPath( "tutorialmod", "cycle_chisel"));
 
 
     public static final StreamCodec<RegistryFriendlyByteBuf, CycleChiselPayload> STREAM_CODEC =
-            StreamCodec.unit(
-                    new CycleChiselPayload()
-            );
+            StreamCodec.unit(new CycleChiselPayload());
 
 
     @Override

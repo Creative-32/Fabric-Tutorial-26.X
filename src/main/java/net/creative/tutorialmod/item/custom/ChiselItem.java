@@ -32,19 +32,18 @@ import java.util.function.Consumer;
 
 public class ChiselItem extends Item {
 
-
     public ChiselItem(Properties properties) {
         super(properties);
     }
 
 //-----------------------------------------          Right Click Air          -----------------------------------------
     @Override
-    public InteractionResult use(Level level, Player player, InteractionHand hand){
+    public InteractionResult use(Level level, Player player, InteractionHand hand) {
 
         if(player.isCrouching()){
+
             player.getMainHandItem().remove(ModDataComponents.COORDINATES);
             ChiselPreviewData.clear();
-
             player.sendSystemMessage(
                     Component.literal(
                             "Selection cleared"
@@ -59,7 +58,7 @@ public class ChiselItem extends Item {
 
 //----------------------------------------          Right Click Block          ----------------------------------------
     @Override
-    public InteractionResult useOn(UseOnContext context){
+    public InteractionResult useOn(UseOnContext context) {
 
         Level level = context.getLevel();
 
@@ -74,27 +73,25 @@ public class ChiselItem extends Item {
 
 
 //------------------------------------------          Selection Mode          ------------------------------------------
-        if(player instanceof ServerPlayer serverPlayer && ChiselPlayerData.isChiselMode(serverPlayer)){
+
+        if(player instanceof ServerPlayer serverPlayer && ChiselPlayerData.isChiselMode(serverPlayer)) {
 
             List<BlockPos> list = stack.get(ModDataComponents.COORDINATES);
 
-
-            if(list == null)
+            if(list == null) {
                 list = new ArrayList<>();
-
-            else
+            } else {
                 list = new ArrayList<>(list);
+            }
 
-
-            if(list.contains(pos)){
+            if(list.contains(pos)) { // Need to make it so if they change block then remove it, it calls original block back
                 list.remove(pos);
                 player.sendSystemMessage(
                         Component.literal(
                                 "Removed " + pos
                         )
                 );
-            }
-            else{
+            } else{
                 list.add(pos);
                 player.sendSystemMessage(
                         Component.literal(
@@ -118,7 +115,7 @@ public class ChiselItem extends Item {
 
         Block block = level.getBlockState(pos).getBlock();
 
-        if(CHISEL_MAP.containsKey(block)){
+        if(CHISEL_MAP.containsKey(block)) {
             level.setBlockAndUpdate(
                     pos,
                     CHISEL_MAP.get(block)
@@ -139,10 +136,9 @@ public class ChiselItem extends Item {
 
 //-------------------------------------------          Preview Mode          -------------------------------------------
 
-    public static void cyclePreview(Level level, Player player, ItemStack stack){
+    public static void cyclePreview(Level level, Player player, ItemStack stack) {
 
         List<BlockPos> positions = stack.get(ModDataComponents.COORDINATES);
-
 
         if(positions == null || positions.isEmpty()){
             player.sendSystemMessage(
@@ -154,7 +150,7 @@ public class ChiselItem extends Item {
         }
 
 
-        for(BlockPos pos : positions){ BlockState old = level.getBlockState(pos);
+        for(BlockPos pos : positions) { BlockState old = level.getBlockState(pos);
 
             // Save original once
             ChiselPreviewData.save(pos, old);
@@ -174,7 +170,6 @@ public class ChiselItem extends Item {
 
         List<BlockPos> positions = stack.get(ModDataComponents.COORDINATES);
 
-
         if(positions == null)
             return;
 
@@ -189,20 +184,16 @@ public class ChiselItem extends Item {
                         "Chisel confirmed"
                 )
         );
-
-
-
     }
 
 
 //----------------------------------------          Cancellation Mode          ----------------------------------------
-    public static void cancelPreview(Level level,Player player,ItemStack stack){
+    public static void cancelPreview(Level level,Player player,ItemStack stack) {
 
         List<BlockPos> positions = stack.get(ModDataComponents.COORDINATES);
 
-
-        if(positions != null){
-            for(BlockPos pos : positions){
+        if(positions != null) {
+            for(BlockPos pos : positions) {
 
                 BlockState original = ChiselPreviewData.get(pos);
 
@@ -227,6 +218,8 @@ public class ChiselItem extends Item {
 //--------------------------------------------          Block Map          --------------------------------------------
     private static final Map<Block,Block> CHISEL_MAP = new HashMap<>();
 
+    // There has to be a Better way to Cycle through Block Families
+    //      * Need a way to Auto Get Similar Blocks
     static{
 
         CHISEL_MAP.put(
@@ -263,8 +256,7 @@ public class ChiselItem extends Item {
 //---------------------------------------------          Tooltip          ---------------------------------------------
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display,
-                                Consumer<Component> builder, TooltipFlag flag){
-
+                                Consumer<Component> builder, TooltipFlag flag) {
 
         if(stack.has(ModDataComponents.COORDINATES)){
 
@@ -278,7 +270,8 @@ public class ChiselItem extends Item {
             );
         }
 
-        super.appendHoverText(stack, context, display, builder, flag);}
+        super.appendHoverText(stack, context, display, builder, flag);
+    }
 
 
 

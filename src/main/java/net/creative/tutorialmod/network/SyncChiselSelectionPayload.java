@@ -9,18 +9,10 @@ import net.minecraft.resources.Identifier;
 import java.util.ArrayList;
 import java.util.List;
 
-
-public record SyncChiselSelectionPayload(List<BlockPos> positions)
-        implements CustomPacketPayload {
-
+public record SyncChiselSelectionPayload(List<BlockPos> positions) implements CustomPacketPayload {
 
     public static final Type<SyncChiselSelectionPayload> TYPE =
-            new Type<>(
-                    Identifier.fromNamespaceAndPath(
-                            "tutorialmod",
-                            "sync_chisel_selection"
-                    )
-            );
+            new Type<>(Identifier.fromNamespaceAndPath( "tutorialmod", "sync_chisel_selection"));
 
 
     public static final StreamCodec<RegistryFriendlyByteBuf, SyncChiselSelectionPayload> STREAM_CODEC =
@@ -28,7 +20,7 @@ public record SyncChiselSelectionPayload(List<BlockPos> positions)
                     (buf,payload)->{
                         buf.writeCollection(
                                 payload.positions(),
-                                (b,pos)-> BlockPos.STREAM_CODEC.encode(b,pos)
+                                BlockPos.STREAM_CODEC //   =>  (b,pos)-> BlockPos.STREAM_CODEC.encode(b,pos)
                         );
                     },
                     buf->{

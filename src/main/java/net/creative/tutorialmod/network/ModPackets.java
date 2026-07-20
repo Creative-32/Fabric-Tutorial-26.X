@@ -16,39 +16,6 @@ public class ModPackets {
 
     public static void register() {
 
-
-        // C - Toggle Selection Mode
-        PayloadTypeRegistry.serverboundPlay()
-                .register(
-                        ToggleChiselModePayload.TYPE,
-                        ToggleChiselModePayload.STREAM_CODEC
-                );
-
-
-        // V - Confirm Preview
-        PayloadTypeRegistry.serverboundPlay()
-                .register(
-                        ApplyChiselPayload.TYPE,
-                        ApplyChiselPayload.STREAM_CODEC
-                );
-
-
-        // R - Cycle Preview
-        PayloadTypeRegistry.serverboundPlay()
-                .register(
-                        CycleChiselPayload.TYPE,
-                        CycleChiselPayload.STREAM_CODEC
-                );
-
-
-        // X - Cancel Preview
-        PayloadTypeRegistry.serverboundPlay()
-                .register(
-                        CancelChiselPayload.TYPE,
-                        CancelChiselPayload.STREAM_CODEC
-                );
-
-
         // Server -> Client selected blocks
         PayloadTypeRegistry.clientboundPlay()
                 .register(
@@ -57,8 +24,12 @@ public class ModPackets {
                 );
 
 
-
-
+        // C - Toggle Selection Mode
+        PayloadTypeRegistry.serverboundPlay()
+                .register(
+                        ToggleChiselModePayload.TYPE,
+                        ToggleChiselModePayload.STREAM_CODEC
+                );
 
         // C - Toggle Selection Mode
         ServerPlayNetworking.registerGlobalReceiver(
@@ -69,8 +40,7 @@ public class ModPackets {
                                 context.player(),
                                 payload.enabled()
                         );
-                        context.player()
-                                .sendSystemMessage(
+                        context.player().sendSystemMessage(
                                         Component.literal(
                                                 "Selection Mode: "
                                                         + payload.enabled()
@@ -81,42 +51,21 @@ public class ModPackets {
         );
 
 
-
-
-
-        // R - Cycle Preview
-        ServerPlayNetworking.registerGlobalReceiver(
-                CycleChiselPayload.TYPE,
-                (payload, context) -> {
-                    context.server().execute(() -> {
-                        Player player =
-                                context.player();
-                        ItemStack stack =
-                                player.getMainHandItem();
-                        if(stack.getItem()
-                                instanceof ChiselItem){
-                            ChiselItem.cyclePreview(
-                                    player.level(),
-                                    player,
-                                    stack
-                            );
-                        }
-                    });
-                }
-        );
-
+        // V - Confirm Preview
+        PayloadTypeRegistry.serverboundPlay()
+                .register(
+                        ApplyChiselPayload.TYPE,
+                        ApplyChiselPayload.STREAM_CODEC
+                );
 
         // V - Confirm Preview
         ServerPlayNetworking.registerGlobalReceiver(
                 ApplyChiselPayload.TYPE,
                 (payload, context) -> {
                     context.server().execute(() -> {
-                        Player player =
-                                context.player();
-                        ItemStack stack =
-                                player.getMainHandItem();
-                        if(stack.getItem()
-                                instanceof ChiselItem){
+                        Player player = context.player();
+                        ItemStack stack = player.getMainHandItem();
+                        if(stack.getItem() instanceof ChiselItem){
                             ChiselItem.confirmPreview(
                                     player.level(),
                                     player,
@@ -128,17 +77,47 @@ public class ModPackets {
         );
 
 
+        // R - Cycle Preview
+        PayloadTypeRegistry.serverboundPlay()
+                .register(
+                        CycleChiselPayload.TYPE,
+                        CycleChiselPayload.STREAM_CODEC
+                );
+
+        // R - Cycle Preview
+        ServerPlayNetworking.registerGlobalReceiver(
+                CycleChiselPayload.TYPE,
+                (payload, context) -> {
+                    context.server().execute(() -> {
+                        Player player = context.player();
+                        ItemStack stack = player.getMainHandItem();
+                        if(stack.getItem() instanceof ChiselItem){
+                            ChiselItem.cyclePreview(
+                                    player.level(),
+                                    player,
+                                    stack
+                            );
+                        }
+                    });
+                }
+        );
+
+
+        // X - Cancel Preview
+        PayloadTypeRegistry.serverboundPlay()
+                .register(
+                        CancelChiselPayload.TYPE,
+                        CancelChiselPayload.STREAM_CODEC
+                );
+
         // X - Cancel Preview
         ServerPlayNetworking.registerGlobalReceiver(
                 CancelChiselPayload.TYPE,
                 (payload, context) -> {
                     context.server().execute(() -> {
-                        Player player =
-                                context.player();
-                        ItemStack stack =
-                                player.getMainHandItem();
-                        if(stack.getItem()
-                                instanceof ChiselItem){
+                        Player player =  context.player();
+                        ItemStack stack = player.getMainHandItem();
+                        if(stack.getItem() instanceof ChiselItem){
                             ChiselItem.cancelPreview(
                                     player.level(),
                                     player,
@@ -148,6 +127,9 @@ public class ModPackets {
                     });
                 }
         );
+
+
+
 
 
 

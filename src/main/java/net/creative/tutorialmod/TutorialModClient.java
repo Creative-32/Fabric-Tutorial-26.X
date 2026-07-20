@@ -18,46 +18,33 @@ import net.minecraft.world.item.ItemStack;
 
 public class TutorialModClient implements ClientModInitializer {
 
-
     // Client side display only
     public static boolean chiselMode = false;
-
 
     @Override
     public void onInitializeClient() {
 
-
-        ModKeyBindings.registerKeyBindings();
-
-
         // Block selection outline renderer
-        LevelRenderEvents.BEFORE_GIZMOS.register(
-                ChiselSelectionRenderer::render
-        );
+        LevelRenderEvents.BEFORE_GIZMOS.register(ChiselSelectionRenderer::render);
 
+//----------------------------------------------     Chisel Keybinds     ----------------------------------------------
+        ModKeyBindings.registerKeyBindings();
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
 
-            if(client.player == null)
-                return;
-
             ItemStack stack = client.player.getMainHandItem();
+
+            if(client.player == null) // Might Want to Delete this for the Redstone Block Auto Chisel
+                return;
 
             if(!(stack.getItem() instanceof ChiselItem))
                 return;
 
 
-
             // C - Toggle Selection Mode
             while(ModKeyBindings.chiselKey.consumeClick()){
                 chiselMode = !chiselMode;
-                ClientPlayNetworking.send(
-                        new ToggleChiselModePayload(
-                                chiselMode
-                        )
-                );
-
-
+                ClientPlayNetworking.send(new ToggleChiselModePayload(chiselMode));
                 client.player.sendSystemMessage(
                         Component.literal(
                                 "Selection Mode: "
@@ -66,20 +53,14 @@ public class TutorialModClient implements ClientModInitializer {
                 );
             }
 
-
             // R - Cycle Preview
             while(ModKeyBindings.cycleChiselKey.consumeClick()){
-                ClientPlayNetworking.send(
-                        new CycleChiselPayload()
-                );
+                ClientPlayNetworking.send(new CycleChiselPayload());
             }
-
 
             // V - Confirm Preview
             while(ModKeyBindings.applyChiselKey.consumeClick()){
-                ClientPlayNetworking.send(
-                        new ApplyChiselPayload()
-                );
+                ClientPlayNetworking.send(new ApplyChiselPayload());
                 client.player.sendSystemMessage(
                         Component.literal(
                                 "Preview Confirmed"
@@ -90,9 +71,7 @@ public class TutorialModClient implements ClientModInitializer {
 
             // X - Cancel Preview
             while(ModKeyBindings.cancelChiselKey.consumeClick()){
-                ClientPlayNetworking.send(
-                        new CancelChiselPayload()
-                );
+                ClientPlayNetworking.send(new CancelChiselPayload());
                 client.player.sendSystemMessage(
                         Component.literal(
                                 "Preview Cancelled"
@@ -102,43 +81,30 @@ public class TutorialModClient implements ClientModInitializer {
 
 
 
-
-
-
         });
 
-
-
-
+//---------------------------------------------     Sync Chisel Packet     ---------------------------------------------
 
         // Receive Selected Blocks From Server
-        ClientPlayNetworking.registerGlobalReceiver(
-                SyncChiselSelectionPayload.TYPE,
-                (payload, context) -> {
-                    context.client().execute(() -> {
-
+        ClientPlayNetworking.registerGlobalReceiver(SyncChiselSelectionPayload.TYPE,
+                (payload, context) -> {context.client().execute(() -> {
 
                         if(context.client().player == null)
                             return;
-                        ItemStack stack =
-                                context.client()
-                                        .player
-                                        .getMainHandItem();
 
+                        ItemStack stack = context.client().player.getMainHandItem();
 
-                        if(stack.getItem()
-                                instanceof ChiselItem){
+                        if(stack.getItem() instanceof ChiselItem){
                             stack.set(
                                     ModDataComponents.COORDINATES,
                                     payload.positions()
                             );
                         }
-
-
                     });
-
                 }
         );
+
+//----------------------------------------------------------------------------------------------------------------------
 
 
 

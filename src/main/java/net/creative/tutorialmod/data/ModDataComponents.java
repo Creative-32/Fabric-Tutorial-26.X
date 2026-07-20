@@ -15,12 +15,11 @@ import java.util.function.UnaryOperator;
 
 public class ModDataComponents {
 
-
     public static final DataComponentType<List<BlockPos>> COORDINATES =
             register(
                     "coordinates",
                     builder -> builder
-                            .persistent(BlockPos.CODEC.listOf())
+                            .persistent(BlockPos.CODEC.listOf()) // Block Position
                             .networkSynchronized(
                                     ByteBufCodecs.collection(
                                             ArrayList::new,
@@ -35,16 +34,11 @@ public class ModDataComponents {
             register(
                     "original_blocks",
                     builder -> builder
-                            .persistent(
-                                    BlockState.CODEC.listOf()
-                            )
+                            .persistent(BlockState.CODEC.listOf()) // Block State
             );
 
 
-    private static <T> DataComponentType<T> register(
-            String name,
-            UnaryOperator<DataComponentType.Builder<T>> builderOperator
-    ){
+    private static <T> DataComponentType<T> register(String name, UnaryOperator<DataComponentType.Builder<T>> builderOperator) {
         return Registry.register(
                 BuiltInRegistries.DATA_COMPONENT_TYPE,
                 Identifier.fromNamespaceAndPath(
