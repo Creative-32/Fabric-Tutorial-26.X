@@ -122,7 +122,7 @@ public class ModModelProvider extends FabricModelProvider {
         ItemModel.Unbaked unbakedUsedChisel = ItemModelUtils.plainModel(itemModelGenerators.createFlatItemModel(ModItems.CHISEL, "_used", ModelTemplates.FLAT_HANDHELD_ITEM));
         // Determines Which Texture to Point Too
         itemModelGenerators.itemModelOutput.accept(ModItems.CHISEL,
-                new ClientItem(new ConditionalItemModel.Unbaked(Optional.empty(), new HasComponent(ModDataComponents.COORDINATES, false),
+                new ClientItem(new ConditionalItemModel.Unbaked(Optional.empty(), new HasComponent(ModDataComponents.CHISEL_COORDINATES, false),
                         unbakedUsedChisel, unbakedChisel), new ClientItem.Properties(false, false, 1f)).model());
 
         // Bow

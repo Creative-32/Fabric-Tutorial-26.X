@@ -1,7 +1,7 @@
 {
   "model": {
     "type": "minecraft:condition",
-    "component": "tutorialmod:coordinates",
+    "component": "tutorialmod:chisel_coordinates",
     "on_false": {
       "type": "minecraft:model",
       "model": "tutorialmod:item/chisel"

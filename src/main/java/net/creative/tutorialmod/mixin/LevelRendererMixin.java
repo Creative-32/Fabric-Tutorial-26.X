@@ -53,7 +53,7 @@ public class LevelRendererMixin {
         BlockPos lookedAt = outlineState.pos();
 
         // Selected blocks stored in the chisel
-        List<BlockPos> positions = stack.get(ModDataComponents.COORDINATES);
+        List<BlockPos> positions = stack.get(ModDataComponents.CHISEL_COORDINATES);
 
         if (positions == null)
             return;

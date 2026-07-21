@@ -30,7 +30,7 @@ public class ChiselSelectionRenderer {
         if (!(stack.getItem() instanceof ChiselItem))
             return;
 
-        List<BlockPos> positions = stack.get(ModDataComponents.COORDINATES);
+        List<BlockPos> positions = stack.get(ModDataComponents.CHISEL_COORDINATES);
 
         if (positions == null)
             return;

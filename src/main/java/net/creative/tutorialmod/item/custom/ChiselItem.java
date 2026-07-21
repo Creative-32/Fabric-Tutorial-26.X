@@ -6,7 +6,6 @@ import net.creative.tutorialmod.data.ModDataComponents;
 import net.creative.tutorialmod.stat.ModStats;
 import net.creative.tutorialmod.network.SyncChiselSelectionPayload;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -42,7 +41,7 @@ public class ChiselItem extends Item {
 
         if(player.isCrouching()){
 
-            player.getMainHandItem().remove(ModDataComponents.COORDINATES);
+            player.getMainHandItem().remove(ModDataComponents.CHISEL_COORDINATES);
             ChiselPreviewData.clear();
             player.sendSystemMessage(
                     Component.literal(
@@ -76,7 +75,7 @@ public class ChiselItem extends Item {
 
         if(player instanceof ServerPlayer serverPlayer && ChiselPlayerData.isChiselMode(serverPlayer)) {
 
-            List<BlockPos> list = stack.get(ModDataComponents.COORDINATES);
+            List<BlockPos> list = stack.get(ModDataComponents.CHISEL_COORDINATES);
 
             if(list == null) {
                 list = new ArrayList<>();
@@ -85,22 +84,28 @@ public class ChiselItem extends Item {
             }
 
             if(list.contains(pos)) { // Need to make it so if they change block then remove it, it calls original block back
-                list.remove(pos);
+                list.remove(pos);    // Do a Check to Add Original Block back
                 player.sendSystemMessage(
                         Component.literal(
-                                "Removed " + pos
+                                "Removed Block"
                         )
                 );
-            } else{
+            } else if(list.size() >= 16) {
+                player.sendSystemMessage(
+                        Component.literal(
+                                "Max Block Amount Reached"
+                        )
+                );
+            } else {
                 list.add(pos);
                 player.sendSystemMessage(
                         Component.literal(
-                                "Added " + pos
+                                "Added Block"
                         )
                 );
             }
 
-            stack.set(ModDataComponents.COORDINATES,list);
+            stack.set(ModDataComponents.CHISEL_COORDINATES,list);
 
             ServerPlayNetworking.send(
                     serverPlayer,
@@ -138,7 +143,7 @@ public class ChiselItem extends Item {
 
     public static void cyclePreview(Level level, Player player, ItemStack stack) {
 
-        List<BlockPos> positions = stack.get(ModDataComponents.COORDINATES);
+        List<BlockPos> positions = stack.get(ModDataComponents.CHISEL_COORDINATES);
 
         if(positions == null || positions.isEmpty()){
             player.sendSystemMessage(
@@ -168,7 +173,7 @@ public class ChiselItem extends Item {
 //----------------------------------------          Confirmation Mode          ----------------------------------------
     public static void confirmPreview(Level level, Player player, ItemStack stack){
 
-        List<BlockPos> positions = stack.get(ModDataComponents.COORDINATES);
+        List<BlockPos> positions = stack.get(ModDataComponents.CHISEL_COORDINATES);
 
         if(positions == null)
             return;
@@ -177,11 +182,11 @@ public class ChiselItem extends Item {
 
         ChiselPreviewData.clear();
 
-        stack.remove(ModDataComponents.COORDINATES);
+        stack.remove(ModDataComponents.CHISEL_COORDINATES);
 
         player.sendSystemMessage(
                 Component.literal(
-                        "Chisel confirmed"
+                        "Chisel Confirmed"
                 )
         );
     }
@@ -190,7 +195,7 @@ public class ChiselItem extends Item {
 //----------------------------------------          Cancellation Mode          ----------------------------------------
     public static void cancelPreview(Level level,Player player,ItemStack stack) {
 
-        List<BlockPos> positions = stack.get(ModDataComponents.COORDINATES);
+        List<BlockPos> positions = stack.get(ModDataComponents.CHISEL_COORDINATES);
 
         if(positions != null) {
             for(BlockPos pos : positions) {
@@ -205,11 +210,11 @@ public class ChiselItem extends Item {
 
         ChiselPreviewData.clear();
 
-        stack.remove(ModDataComponents.COORDINATES);
+        stack.remove(ModDataComponents.CHISEL_COORDINATES);
 
         player.sendSystemMessage(
                 Component.literal(
-                        "Preview cancelled"
+                        "Preview Cancelled"
                 )
         );
     }
@@ -258,9 +263,9 @@ public class ChiselItem extends Item {
     public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display,
                                 Consumer<Component> builder, TooltipFlag flag) {
 
-        if(stack.has(ModDataComponents.COORDINATES)){
+        if(stack.has(ModDataComponents.CHISEL_COORDINATES)){
 
-            List<BlockPos> list = stack.get(ModDataComponents.COORDINATES);
+            List<BlockPos> list = stack.get(ModDataComponents.CHISEL_COORDINATES);
 
             builder.accept(
                     Component.literal(

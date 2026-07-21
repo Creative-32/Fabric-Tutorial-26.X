@@ -30,16 +30,18 @@ public class ModItems {
 
 
     // --------------------------------------       Items       --------------------------------------
-    public static final Item CHISEL = registerItem("chisel", properties ->  new ChiselItem(properties.durability(32)));
+    public static final Item CHISEL = registerItem("chisel", properties ->
+            new ChiselItem(properties.durability(80)));
 
 
 
     // --------------------------------------    Consumable    --------------------------------------
-    public static final Item STRAWBERRY = registerItem("strawberry", properties ->  new Item(properties
-            .food(ModFoods.STRAWBERRY, ModFoods.STRAWBERRY_CONSUMABLE))
+    public static final Item STRAWBERRY = registerItem("strawberry", properties ->
+                    new Item(properties.food(ModFoods.STRAWBERRY, ModFoods.STRAWBERRY_CONSUMABLE))
     // Regular Tooltip
     {@Override
-        public void appendHoverText(ItemStack itemStack, TooltipContext context, TooltipDisplay display, Consumer<Component> builder, TooltipFlag tooltipFlag) {
+        public void appendHoverText(ItemStack itemStack, TooltipContext context, TooltipDisplay display,
+                                    Consumer<Component> builder, TooltipFlag tooltipFlag) {
             builder.accept(Component.translatable("tooltip.tutorialmod.strawberry"));
             super.appendHoverText(itemStack, context, display, builder, tooltipFlag);
         }}

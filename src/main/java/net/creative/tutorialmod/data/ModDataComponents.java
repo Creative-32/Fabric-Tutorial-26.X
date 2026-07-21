@@ -15,9 +15,9 @@ import java.util.function.UnaryOperator;
 
 public class ModDataComponents {
 
-    public static final DataComponentType<List<BlockPos>> COORDINATES =
+    public static final DataComponentType<List<BlockPos>> CHISEL_COORDINATES =
             register(
-                    "coordinates",
+                    "chisel_coordinates",
                     builder -> builder
                             .persistent(BlockPos.CODEC.listOf()) // Block Position
                             .networkSynchronized(

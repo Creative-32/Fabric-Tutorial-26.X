@@ -32,14 +32,13 @@ public class TutorialModClient implements ClientModInitializer {
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
 
-            ItemStack stack = client.player.getMainHandItem();
-
             if(client.player == null) // Might Want to Delete this for the Redstone Block Auto Chisel
                 return;
 
+            ItemStack stack = client.player.getMainHandItem();
+
             if(!(stack.getItem() instanceof ChiselItem))
                 return;
-
 
             // C - Toggle Selection Mode
             while(ModKeyBindings.chiselKey.consumeClick()){
@@ -96,7 +95,7 @@ public class TutorialModClient implements ClientModInitializer {
 
                         if(stack.getItem() instanceof ChiselItem){
                             stack.set(
-                                    ModDataComponents.COORDINATES,
+                                    ModDataComponents.CHISEL_COORDINATES,
                                     payload.positions()
                             );
                         }
