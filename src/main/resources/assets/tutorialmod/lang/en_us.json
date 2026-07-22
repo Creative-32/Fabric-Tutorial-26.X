@@ -5,14 +5,12 @@
   "item.tutorialmod.strawberry": "Strawberry",
   "item.tutorialmod.combustible_spores": "Combustible Spores",
 
-
   "item.tutorialmod.fluorite_sword": "Fluorite Sword",
   "item.tutorialmod.fluorite_pickaxe": "Fluorite Pickaxe",
   "item.tutorialmod.fluorite_shovel": "Fluorite Shovel",
   "item.tutorialmod.fluorite_axe": "Fluorite Axe",
   "item.tutorialmod.fluorite_hoe": "Fluorite Hoe",
   "item.tutorialmod.fluorite_spear": "Fluorite Spear",
-
 
   "item.tutorialmod.fluorite_helmet": "Fluorite Helmet",
   "item.tutorialmod.fluorite_chestplate": "Fluorite Chestplate",
@@ -21,7 +19,15 @@
 
   "item.tutorialmod.fluorite_horse_armor": "Fluorite Horse Armor",
   "item.tutorialmod.kaupen_bow": "Kaupen Bow",
-  "item.tutorialmod.sculkbeam_staff": "Sculkbeam mStaff",
+  "item.tutorialmod.sculkbeam_staff": "Sculkbeam Staff",
+
+  "item.tutorialmod.strawberry_seeds": "Strawberry Seeds",
+  "item.tutorialmod.honey_berries": "Honey Berries",
+  "item.tutorialmod.rice_shoot": "Rice Shoot",
+
+  "item.tutorialmod.bar_brawl_music_disc": "Bar Brawl Music Disc",
+
+  "jukebox_song.tutorialmod.bar_brawl": "Bryan Tech - Bar Brawl (CC0)",
 
 
   "block.tutorialmod.fluorite_block": "Block of Fluorite",
@@ -31,7 +37,6 @@
   "block.tutorialmod.fluorite_nether_ore": "Fluorite Nether Ore",
   "block.tutorialmod.fluorite_end_ore": "Fluorite End Ore",
   "block.tutorialmod.magic_block": "Magic Block",
-
 
   "block.tutorialmod.fluorite_stairs": "Fluorite Stairs",
   "block.tutorialmod.fluorite_slab": "Fluorite Slab",
@@ -47,8 +52,10 @@
   "block.tutorialmod.pedestal": "Pedestal",
 
   "block.tutorialmod.strawberry_crop": "Strawberry Crop",
-  "item.tutorialmod.honey_berries": "Honey Berries",
-  "item.tutorialmod.rice_shoot": "Rice Shoot",
+  "block.tutorialmod.honey_berry_bush": "Honey Berry Bush",
+  "block.tutorialmod.rice_crop": "Rice Crop",
+
+
 
   "painting.tutorialmod.world.title": "World",
   "painting.tutorialmod.world.author": "NanoAttack",
@@ -60,6 +67,7 @@
   "stat.tutorialmod.chisel_used": "Blocks Chiseled",
 
   "sounds.tutorialmod.chisel_use": "Using Chisel",
+  "subtitles.tutorialmod.bar_brawl": "Bar Brawl Playing",
 
   "creativemodetab.tutorialmod.fluorite_items": "Fluorite Tutorial Items",
   "creativemodetab.tutorialmod.fluorite_blocks": "Fluorite Tutorial Blocks",

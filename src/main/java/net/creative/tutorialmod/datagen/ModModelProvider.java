@@ -138,6 +138,8 @@ public class ModModelProvider extends FabricModelProvider {
         // Points to Item Model
         itemModelGenerators.declareCustomModelItem(ModItems.SCULKBEAM_STAFF);
 
+        // Music Disc
+        itemModelGenerators.generateFlatItem(ModItems.BAR_BRAWL_MUSIC_DISC, ModelTemplates.FLAT_ITEM);
 
 
     }

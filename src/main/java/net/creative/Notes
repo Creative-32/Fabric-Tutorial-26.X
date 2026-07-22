@@ -285,6 +285,19 @@ Custom Sounds
     5. ModSoundProvider
     6. Sound file and en_us.json
 
+Custom Music Disk
+    1. ModSounds
+    2. ModSoundsProvider
+    3. ModJukeBoxSongs
+    4. ModRegistryDataProvider
+    5. ModItems
+    6. TutorialModDataGenerator
+    7. ModCreativeModeTab
+    8. ModTagsProvider
+    9. ModModelProvider
+    10. en_us,json and sound file
+
+
 ------------------------------------------------------------------------------------------------------------------------
 
 Data Components

@@ -26,5 +26,6 @@ public class TutorialModDataGenerator implements DataGeneratorEntrypoint {
 	@Override
 	public void buildRegistry(RegistrySetBuilder registryBuilder) {
 		registryBuilder.add(Registries.PAINTING_VARIANT, ModPaintings::bootstrap);
+		registryBuilder.add(Registries.JUKEBOX_SONG, ModJukeboxSongs::bootstrap);
 	}
 }

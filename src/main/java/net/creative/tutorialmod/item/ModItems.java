@@ -1,6 +1,7 @@
 package net.creative.tutorialmod.item;
 
 import net.creative.tutorialmod.block.ModBlocks;
+import net.creative.tutorialmod.datagen.ModJukeboxSongs;
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.creative.tutorialmod.TutorialMod;
 import net.creative.tutorialmod.food.ModFoods;
@@ -141,6 +142,8 @@ public class ModItems {
     public static final Item RICE_SHOOT = registerItem("rice_shoot",
             properties -> new PlaceOnWaterBlockItem(ModBlocks.RICE_CROP, properties.useItemDescriptionPrefix()));
 
+    public static final Item BAR_BRAWL_MUSIC_DISC = registerItem("bar_brawl_music_disc",
+            properties -> new Item(properties.jukeboxPlayable(ModJukeboxSongs.BAR_BRAWL_KEY).stacksTo(1).rarity(Rarity.UNCOMMON)));
 
 
 
